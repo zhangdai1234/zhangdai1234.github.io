@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Document</title>
+
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta name="format-detection" content="telephone=no">
+<link rel=" stylesheet " type="text/css " href="css/MultiPicker.css">
+<style>
+*{margin: 0;padding: 0;-webkit-tap-highlight-color:transparent;}
+img{vertical-align: middle;}
+ul{list-style: none;}
+html,body{width: 100%;height: 100%;min-height: 480px;}
+body{font-size: 12px;}
+
+.multi-picker-btn-box .multi-picker-btn {color:#005a6b;font-size: 20px;}
+#main{width: 3.75rem;margin:0 auto;font-family: "Microsoft YaHei";z-index: 10;background-color: white;}
+.image1{width: 100%;}
+.image2{width: 3.63rem;margin-left: 0.059rem;margin-top:0.059rem;}
+.inp{width:3.48rem;height: .285rem;border-radius: 4px;background-color: #969696;margin-left:0.135rem; margin-bottom: .119rem;/*padding-top: .05rem;*/color:#e5e5e5;font-size: .16rem;position: relative;}
+.inp input{background-color: transparent;outline:none;border:none;/*position: absolute;*/height: .285rem;line-height: .285rem;/*top:.03rem;*//*margin-left:.1rem;*/width: 2.6rem;color:#e5e5e5;font-size: .16rem;}
+.inp span{display: inline-block;width: .7rem;text-align: center;line-height: .285rem;/*margin-top: .02rem; */}
+.hint1{font-size: .12rem;margin-left: .1rem;line-height: .234rem;}
+.image3{width:3.48rem;margin-left:0.135rem;margin-bottom: 0.119rem;}
+.movie,.read{position: relative;}
+.bg{width: 100%;height: .234rem;background-color: #f2f2f2;}
+.image4{width:2.7rem;}
+.title1{height:.29rem;font-size: 0.16rem;position: absolute;color:white;font-weight: bold;left:0.2rem;top:0;}
+.title1 p{line-height: .29rem;}
+video{object-fit:fill;width: 100%;margin: 0.119rem 0;}
+.tab{position: relative;}
+.image5{width: .735rem;position: absolute;left:.28rem;top:0;}
+.image5-1,.image5-2,.image5-3,.image5-4{width: .74rem;position: absolute;left:.28rem;top:0;display: none;}
+		
+.image5-1{display:block;}
+.image5-2{left:1.1rem;}
+.image5-3{left:1.91rem;}
+.image5-4{left:2.73rem;}
+.tab{margin-top: .05rem;}
+.tab div{width: .735rem;height:.35rem;font-size: .18rem;color: white;text-align: center;position: absolute;left:.28rem;top:0;line-height: .35rem;}
+.tab div:nth-child(7){left:1.1rem;}
+.tab div:nth-child(8){left:1.91rem;}
+.tab div:nth-child(9){left:2.73rem;}
+.cityli{width: 100%;display: none;}
+.active{display: block}
+.cityli ul{width: 1.675rem;float: left;padding: .1rem;}
+.tih{text-align: center;background-color: #005a6b;color:white;font-size: .18rem;padding: .05rem 0;}
+.cityli p{color:#005a6b;padding: 0.02rem 0.059rem;font-size: .15rem;}
+.footer{width: 100%;background-color: black;overflow: hidden;}
+.footer div{width: 50%;float:left;color:white;}
+.footer p{margin-top: .156rem;}
+.footer img{width: 1.512rem;padding: .176rem;}
+.footer div div{width: 1.512rem;padding:.2rem .176rem;font-size: .2rem;text-align: center;}
+.edit{width: .457rem;position: fixed;top:50%;right:.117rem;}
+</style>
+<script>
+(function(html){  //  设置字体为100px;
+    change()
+    function change(){
+        var w = html.clientWidth
+        if (w>640) {w=640;}
+        var size = 100*(w/375).toFixed(2)
+        html.style.fontSize = size+"px"
+    }
+    window.addEventListener('resize',function(){
+        change()
+    })
+})(document.documentElement)
+</script>
+</head>
+<body>
+	<div id="main">
+		<img class="image1" src="img/1.jpg" alt="">
+		<img class="image2" src="img/2.jpg" alt="">
+		<div class="form">
+			<p class="hint1">*提交信息享受以上优惠</p>
+			<form action="">
+				<div class="inp">
+					<span>姓名</span>
+					<input type="text" name="name" id="name">
+				</div>
+				<div class="inp">
+					<span>电话</span>
+					<input type="tel" name="tel" id="tel">
+				</div>
+				<div class="inp">
+					<span>城市</span>
+					<input disabled type="text" name="city" id="tabcity">
+				</div>
+				<div class="inp">
+					<span>营销商</span>
+					<input disabled type="text" name="shop" id="tabshop">
+				</div>
+				<img class="image3" src="img/2.png" alt="">
+			</form>
+		</div>
+		<div class="movie">
+			<img img class="image4" src="img/3.png" alt="">
+			<div class="title1"><p>点击视频，生动讲解混动雅阁</p></div>
+			<video  src="movie/yage.mp4" poster="img/movie.jpg"></video>
+			
+		</div>
+		<div class="read">
+			
+			<img img class="image4" src="img/3.png" alt="">
+			<div class="title1"><p>一幅图读懂雅阁 锐·混动</p></div>
+			<div class="bg"></div>
+			<img class="image1" src="img/5.jpg" alt="">
+
+			<img class="image1" src="img/6.jpg" alt="">
+			
+		</div>
+		<div class="ingormation">
+			<img class="image1" src="img/7.jpg" alt="">
+			<div class="tab">
+				<img class="image1" src="img/4.png" alt="">
+				<img class="image5-1" src="img/5.png" alt="">
+				<img class="image5-2" src="img/5.png" alt="">
+				<img class="image5-3" src="img/5.png" alt="">
+				<img class="image5-4" src="img/5.png" alt="">
+				<div class="city">广州</div>
+				<div class="city">深圳</div>
+				<div class="city">东莞</div>
+				<div class="city">佛山</div>
+			</div>
+			<div class="cityli active">
+				<ul class="leftli">
+					<li>
+						<div class="tih">广本一店</div>
+						<p>020-36312608</p>
+						<p>广州市黄石东路448号</p>
+					</li>
+					<li>
+						<div class="tih">广州天河店 </div>
+						<p>020-37086041 </p>
+						<p>广东省广州市天河区天 源路350号 </p>
+					</li>
+					<li>
+						<div class="tih">广州番禺店 </div>
+						<p>020-84690633 </p>
+						<p>广州市番禺区沙湾镇东 环路190号 </p>
+					</li>
+					<li>
+						<div class="tih">广州东圃店  </div>
+						<p>020-62865510 </p>
+						<p>广州市天河区黄埔大道 东553号 </p>
+					</li>
+					<li>
+						<div class="tih">增城骏鸣店  </div>
+						<p>020-82620173 </p>
+						<p>广东省增城市荔城镇广 汕公路三联路段  </p>
+					</li>
+					<li>
+						<div class="tih">广州骏延店  </div>
+						<p>020-86870118/86781 818/86870122</p>
+						<p>广州花都区新华镇农新 路22号 </p>
+					</li>
+					<li>
+						<div class="tih">广州合骏店</div>
+						<p>020-84287771</p>
+						<p>广州市海珠区广州大道 南188号</p>
+					</li>
+					<li>
+						<div class="tih">广州芳村店</div>
+						<p>020-81558333 </p>
+						<p>广州市芳村大道205号</p>
+					</li>
+				</ul>
+				<ul class="rightli">
+					<li>
+						<div class="tih">增城亿俊店</div>
+						<p>020-82686200</p>
+						<p>增城市新塘镇107国道 南安村路段</p>
+					</li>
+					<li>
+						<div class="tih">广州汇骏店 </div>
+						<p>020-23838833 </p>
+						<p>广州市番禺区钟村镇10 5国道路段东侧 </p>
+					</li>
+					<li>
+						<div class="tih">广州恒福店 </div>
+						<p>020-32388088</p>
+						<p>广州市天河区东圃镇吉 山村莲塘路1号 </p>
+					</li>
+					<li>
+						<div class="tih">从化长昕店</div>
+						<p>020-37981608 </p>
+						<p>广州市从化市从城大道 89号 </p>
+					</li>
+					<li>
+						<div class="tih">广州鸿粤田店 </div>
+						<p>020-28803188</p>
+						<p>广州市白云区白云大道 永泰立交西侧885号 </p>
+					</li>
+					<li>
+						<div class="tih">广州长盛店  </div>
+						<p>020-28803188 </p>
+						<p>广州市白云区庆槎路80 1号</p>
+					</li>
+					<li>
+						<div class="tih">广州喜龙店</div>
+						<p>020-81415118 </p>
+						<p>广州市荔湾区芳村龙溪 大道299号</p>
+					</li>
+				</ul>
+			</div>
+			<div class="cityli">
+				<ul class="leftli">
+					<li>
+						<div class="tih">深圳深业店</div>
+						<p>0755-25843409</p>
+						<p>深圳市宝安北路梅园仓 库10号</p>
+					</li>
+					<li>
+						<div class="tih">深圳安迅店 </div>
+						<p>0755-26497222 </p>
+						<p>深圳市西丽龙珠四路98 号 </p>
+					</li>
+					<li>
+						<div class="tih">深圳宝安店  </div>
+						<p>0755-27802333 </p>
+						<p>深圳市宝安区宝民一路 217号 </p>
+					</li>
+					<li>
+						<div class="tih">深圳龙华店 </div>
+						<p>0755-29787888 </p>
+						<p>深圳市龙华新区布龙路 龙华段203号 </p>
+					</li>
+					<li>
+						<div class="tih">深圳易达店  </div>
+						<p>0755-83113273 </p>
+						<p>深圳市龙华新区民治街 道民康路1号龙华名车 广场  </p>
+					</li>
+				</ul>
+			    <ul class="rightli">
+					<li>
+						<div class="tih">深圳鹏峰店 </div>
+						<p>0755-88350889 </p>
+						<p>深圳市深南中路福田汽 车站东侧 </p>
+					</li>
+					<li>
+						<div class="tih">深圳龙岗店 </div>
+						<p>0755-28986298 </p>
+						<p>深圳市龙岗区清林西路 投资大厦1楼 </p>
+					</li>
+					<li>
+						<div class="tih">深圳兴业店 </div>
+						<p>0755-29878888 </p>
+						<p>深圳市宝安区沙井镇10 7国道上寮路交汇处 </p>
+					</li>
+					<li>
+						<div class="tih">深圳安信店 </div>
+						<p>0755-26460111 </p>
+						<p>深圳市南山区宝安大道 嘉进隆前海汽车城A区 A04-1号 </p>
+					</li>
+				</ul>
+			</div>
+			<div class="cityli">
+				<ul class="leftli">
+					<li>
+						<div class="tih">东莞聚成店 </div>
+						<p>0769-22409666 </p>
+						<p>东莞市南城区莞太路周 溪路口 </p>
+					</li>
+					<li>
+						<div class="tih">东莞金美店 </div>
+						<p>0769-83821222 </p>
+						<p>广东省东莞市常平镇常 朗大道与环城路交汇处 </p>
+					</li>
+					<li>
+						<div class="tih">东莞恒信店 </div>
+						<p>0769-22658555 </p>
+						<p>东莞市东城区莞龙路上 桥路段 </p>
+					</li>
+					
+					<li>
+						<div class="tih">东莞鸿泰店 </div>
+						<p>0769-89186888 </p>
+						<p>东莞市厚街镇S256省道 三屯路段 </p>
+					</li>
+					<li>
+						<div class="tih">东莞龙成店 </div>
+						<p>0769-22779999 </p>
+						<p>东莞市万江区万江大道 新谷涌段 </p>
+					</li>
+				</ul>
+			    <ul class="rightli">
+					<li>
+						<div class="tih">东莞昊安店 </div>
+						<p>0769-85386111 </p>
+						<p>东莞市长安镇振安路锦 厦河东路段28号 </p>
+					</li>
+					<li>
+						<div class="tih">东莞华升店 </div>
+						<p>0769-85246608 </p>
+						<p>东莞市虎门镇博涌社岗 路段（107国道南国酒 店对面） </p>
+					</li>
+					<li>
+						<div class="tih">东莞莞樟店  </div>
+						<p>0769-82110000 </p>
+						<p>东莞市樟木头镇东深公 路南方汽车博览中心旁 </p>
+					</li>
+					<li>
+						<div class="tih">东莞凯润东成店  </div>
+						<p>0769-82223999 </p>
+						<p>东莞市寮步镇香市路国 际汽车城东侧 </p>
+					</li>
+				</ul>
+			</div>
+			<div class="cityli">
+				<ul class="leftli">
+					<li>
+						<div class="tih">佛山顺德店 </div>
+						<p>0757-22383238 </p>
+						<p>顺德市广珠公路大良新 松路段 </p>
+					</li>
+					<li>
+						<div class="tih">佛山南海店 </div>
+						<p>0757-86319999 </p>
+						<p>广东省南海市桂城海八 路叠北 </p>
+					</li>
+					<li>
+						<div class="tih">佛山立欣店 </div>
+						<p>0757-85598121 </p>
+						<p>广东省佛山市南海区大 沥沥西广三高速公路松 岗出口 </p>
+					</li>
+					<li>
+						<div class="tih">佛山长兴店 </div>
+						<p>0757-81812222 </p>
+						<p>佛山市南海区桂城佛平 路与一环交汇处 </p>
+					</li>
+					
+					
+					<li>
+						<div class="tih">顺德陈村店  </div>
+						<p>0757-29833311 </p>
+						<p>佛山市顺德区陈村镇10 5国道林头大桥旁（半岛 碧桂园对面） </p>
+					</li>
+				</ul>
+
+
+			    <ul class="rightli">
+					<li>
+						<div class="tih">佛山宝兴店  </div>
+						<p>0757-83986688 </p>
+						<p>佛山市禅城区佛山大道 中38号佛山车城一区1座 </p>
+					</li>
+					<li>
+						<div class="tih">顺德龙江店 </div>
+						<p>0757-23379502 </p>
+						<p>佛山市顺德区龙江镇32 5国道陈涌路段 </p>
+					</li>
+					<li>
+						<div class="tih">佛山骏捷店  </div>
+						<p>0757-87818088 </p>
+						<p>佛山市三水区西南街广 海西路6号 </p>
+					</li>
+					<li>
+						<div class="tih">佛山恒兴店 </div>
+						<p>0757-88710028 </p>
+						<p>佛山市南海区大沥盐步 广佛新干线联桂路段邵 边牌坊旁 </p>
+					</li>
+					<li>
+						<div class="tih">南海时利和店 </div>
+						<p>0758-86686999 </p>
+						<p>佛山市南海区狮山镇穆 院村尚贤中村民小组（ 土名）振岗自编之二 </p>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="footer">
+			<div>
+				<img src="img/er.jpg" alt="">
+			</div>
+			<div>
+				<div>
+					<p>长按识别二维码</p>
+					<p>了解更多</p>
+					<p>新雅阁锐 · 混动</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<img class="edit" src="img/1.png" alt="">
+	<div id="chooseCity"></div>
+	<div id="chooseShop"></div>
+</body>
+<script src="js/jquery-3.2.0.min.js"></script>
+<script type="text/javascript" src="js/MultiPicker.js"></script>
+<script>
+	var city = [{
+            id: 0,
+            value: '广州'
+        }, {
+            id: 1,
+            value: '深圳'
+        }, {
+            id: 2,
+            value: '东莞'
+        }, {
+            id: 3,
+            value: '佛山'
+        }, ];
+    var shop = [
+    		[{id:001,
+    		value:"广本一店"
+    		},
+    		{id:002,
+    		value:"增城亿俊店"
+    		},
+    		{id:003,
+    		value:"广州天河店"
+    		},
+    		{id:004,
+    		value:"广州汇骏店"
+    		},
+    		{id:005,
+    		value:"广州番禺店"
+    		},
+    		{id:006,
+    		value:"广州恒福店"
+    		},
+    		{id:007,
+    		value:"广州东圃店"
+    		},
+    		{id:008,
+    		value:"从化长昕店"
+    		},
+    		{id:009,
+    		value:"增城骏鸣店"
+    		},
+    		{id:010,
+    		value:"广州鸿粤田店"
+    		},
+    		{id:011,
+    		value:"广州骏延店"
+    		},
+    		{id:012,
+    		value:"广州长盛店"
+    		},
+    		{id:013,
+    		value:"广州合骏店"
+    		},
+    		{id:014,
+    		value:"广州喜龙店"
+    		},
+    		{id:0015,
+    		value:"广州芳村店"
+    		}],
+
+    		[{id:101,
+    		value:"深圳深业店"
+    		},
+    		{id:102,
+    		value:"深圳鹏峰店"
+    		},
+    		{id:103,
+    		value:"深圳安迅店"
+    		},
+    		{id:104,
+    		value:"深圳龙岗店"
+    		},
+    		{id:105,
+    		value:"深圳宝安店"
+    		},
+    		{id:106,
+    		value:"深圳兴业店"
+    		},
+    		{id:107,
+    		value:"深圳龙华店"
+    		},
+    		{id:108,
+    		value:"深圳安信店"
+    		},
+    		{id:109,
+    		value:"深圳易达店"
+    		}],
+
+    		[{id:201,
+    		value:"东莞聚成店"
+    		},
+    		{id:202,
+    		value:"东莞昊安店"
+    		},
+    		{id:203,
+    		value:"东莞金美店"
+    		},
+    		{id:204,
+    		value:"东莞华升店"
+    		},
+    		{id:205,
+    		value:"东莞恒信店"
+    		},
+    		{id:206,
+    		value:"东莞莞樟店"
+    		},
+    		{id:207,
+    		value:"东莞鸿泰店"
+    		},
+    		{id:208,
+    		value:"东莞凯润东成店"
+    		},
+    		{id:209,
+    		value:"东莞龙成店"
+    		},],
+
+    		[{id:301,
+    		value:"佛山顺德店"
+    		},
+    		{id:302,
+    		value:"佛山宝兴店"
+    		},
+    		{id:303,
+    		value:"佛山南海店"
+    		},
+    		{id:304,
+    		value:"顺德龙江店"
+    		},
+    		{id:305,
+    		value:"佛山立欣店"
+    		},
+    		{id:306,
+    		value:"佛山骏捷店"
+    		},
+    		{id:307,
+    		value:"佛山长兴店"
+    		},
+    		{id:308,
+    		value:"佛山恒兴店"
+    		},
+    		{id:309,
+    		value:"顺德陈村店"
+    		},
+    		{id:310,
+    		value:"南海时利和店"
+    		},]]  
+    tabcity();  
+	City();
+	Shop(0);
+    function tabcity(){
+    	var citys = document.querySelectorAll(".city");
+    	console.log(citys)
+    	for(var i=0;i<citys.length;i++){
+    		citys[i].index  = i;
+    		touch(citys[i],function(that){
+    			
+    			for(var j=0;j<citys.length;j++){
+    				var obj = ".image5-"+(j+1);
+    				$(".cityli").eq(j).hide()
+    				$(obj).hide();
+    			}
+    			$(".cityli").eq(that.index).show();
+    			var obj = ".image5-"+(that.index+1);
+    			console.log(that.index)
+    			$(obj).show();
+    		})
+    	}
+    }
+    function touch(el,fn){
+    	var isMoved = false;
+        var x = 0;   
+        var y = 0;            
+        el.addEventListener("touchstart",function(e){
+            isMoved = false;
+            x = e.touches[0].clientX;
+            y = e.touches[0].clientY;
+        },false);
+        el.addEventListener("touchmove",function(e){
+            if (Math.abs(e.touches[0].clientX-x)+Math.abs(e.touches[0].clientY-y)>10) {
+                isMoved = true;
+            }                        
+        },false);
+        el.addEventListener("touchend",function(){
+            if (!isMoved) {
+                fn(this);
+            }
+        })
+    }
+    var up = document.querySelector(".image3");
+    var edit = document.querySelector(".edit");
+    var video = document.querySelector("video");
+    touch(up,function(){
+    	var upData = {};
+    	upData.name = $("#name").val();
+    	upData.tel = $("#tel").val();
+    	upData.tabcity = $("#tabcity").val();
+    	upData.tabshop = $("#tabshop").val();
+    	if(!(/^1(3|4|5|7|8)\d{9}$/.test(upData.tel))){
+			alert('电话格式不正确，请重填！');
+			return false;
+		}
+    	if(upData.name==""){alert("请输入姓名！");return}
+    	if(upData.tel==""){alert("请输入电话！");return}
+    	if(upData.tabcity==""){alert("请选择城市！");return}
+    	if(upData.tabshop==""){alert("请选择营销商！");return}
+    	$.ajax({
+    		type:"post",
+    		url:"",
+    		typeData:"json",
+    		data:upData,
+    		success:function(data){
+
+    		}
+    	})
+    })
+    // touch(edit,function(){
+    // 	var top = $(".image2").offset().top;
+    // 	$(window).scrollTop(top);
+    // })
+    touch(video,function(){
+    	video.play()
+    	video.controls=true;
+    })
+     function City() {
+            new MultiPicker({
+                input: 'tabcity', //点击触发插件的input框的id
+                container: 'chooseCity', //插件插入的容器id
+                jsonData: city,
+                success: function(arr) {
+                        
+                        Shop(arr[0].id);
+                        $('#tabcity').val(arr[0].value);
+                    } //回调
+            });
+    }
+            
+    function Shop (i){
+    	new MultiPicker({
+                input: 'tabshop', //点击触发插件的input框的id
+                container: 'chooseShop', //插件插入的容器id
+                jsonData: shop[i],
+                success: function(arr) {
+                        // $('#series').attr('series-id', arr[0].id);
+                        
+                        $('#tabshop').val(arr[0].value);
+                    } //回调
+            });
+    
+    }
+</script>
+</html>
