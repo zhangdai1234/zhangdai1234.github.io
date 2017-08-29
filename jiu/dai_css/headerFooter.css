@@ -1,0 +1,5 @@
+/***中间弹框***/
+.huodong_box{display:none;width: 708px;height: 509px;background: url(dai_images/huodong.png) center center no-repeat;position: fixed;top: 10%;left: 0;right: 0;bottom: 0;margin: auto;z-index: 999;}
+.huodong_box1{display: block;}
+.huodong_box img{margin-left: 86%;margin-top: 10px;}
+/***中间弹框***/
