@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<title></title>
+	<link rel=" stylesheet " type="text/css " href="css/MultiPicker.css">
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<script>
+(function(html){
+	change()
+	function change(){
+		var w = html.clientWidth
+		if (w>640) {w=640;}
+			var size = 100*(w/375).toFixed(2)
+			html.style.fontSize = size+"px"
+		}
+		window.addEventListener('resize',function(){
+		change()
+	})
+})(document.documentElement)
+</script>
+<body>
+	<div class="wrap">
+		<div class="header"><img src="images/header.jpg" alt=""></div>
+		<div class="content"><img src="images/content.jpg" alt=""></div>
+		<div class="form">
+			<img src="images/form_bg.jpg" alt="" class="form_bg">
+			<form action="">
+				<div class="row v">
+					<label for="tabcar">车型</label>
+					<input type="text" id="tabcar" readonly placeholder="请选择">
+				</div>
+				<div class="row">
+					<label for="name">姓名</label>
+					<input type="text" id="name">
+				</div>
+				<div class="row">
+					<label for="tel">手机号</label>
+					<input type="text" id="tel">
+				</div>
+				<div class="row v">
+					<label for="tabprovince">省份</label>
+					<input type="text" id="tabprovince" readonly placeholder="请选择">
+				</div>
+				<div class="row v">
+					<label for="tabcity">城市</label>
+					<input type="text" id="tabcity" readonly placeholder="请选择">
+				</div>
+				<div class="row v">
+					<label for="tabshop">经销商</label>
+					<input type="text" id="tabshop" readonly placeholder="请选择">
+				</div>
+				<div class="submit"></div>	
+				<img class="btn" src="images/btn.png" alt="">
+			</form>
+		</div>
+		
+		<div class="img">
+			<img src="images/t1.jpg" alt="">
+			<img src="images/t2.jpg" alt="">
+			<img src="images/t3.jpg" alt="">
+			<img src="images/t4.jpg" alt="">
+			<img src="images/t5.jpg" alt="">
+			<img src="images/t6.jpg" alt="">
+		</div>
+		<div class="shop">
+			<div class="shop_title"><img src="images/title2.png" alt=""></div>
+			<div class="select_wrap">
+				<img src="images/select_bg.png" alt="">
+				<ul class="top">
+					<li class="select">
+						<span>湖南</span>
+						<img src="images/select.png" alt="">
+					</li>
+					<li>
+						<span>广东</span>
+						<img src="images/select.png" alt="">
+					</li>
+					<li>
+						<span>广西</span>
+						<img src="images/select.png" alt="">
+					</li>
+				</ul>
+				<ul class="bottom">
+					<li>
+						<span>福建</span>
+						<img src="images/select.png" alt="">
+					</li>
+					<li>
+						<span>海南</span>
+						<img src="images/select.png" alt="">
+					</li>
+					<li>
+						<span>江西</span>
+						<img src="images/select.png" alt="">
+					</li>
+				</ul>
+			</div>
+			<div class="shop_con">
+				<ul>
+					<li>
+						<h4>深圳华鹏4S店</h4>
+						<p>0755-82378225</p>
+						<p>深圳市罗湖区延芳路东益汽车交易 广场二期D1区广场二期D1区广场二期D1区</p>
+					</li>
+					<li>
+						<h4>深圳华瑞4S店</h4>
+						<p>0755-83888866</p>
+						<p>深圳市福田区深南大道6068号联 合华鹏汽车交易广场C1-2</p>
+					</li>
+				</ul>
+				<ul>
+					<li>
+						<h4>深圳华鹏4S店</h4>
+						<p>0755-82378225</p>
+						<p>深圳市罗湖区延芳路东益汽车交易 广场二期D1区</p>
+					</li>
+					<li>
+						<h4>深圳华瑞4S店</h4>
+						<p>0755-83888866</p>
+						<p>深圳市福田区深南大道6068号联 合华鹏汽车交易广场C1-2</p>
+					</li>
+				</ul>	
+			</div>
+			
+		</div>
+	</div>
+	<div id="chooseShop"></div>
+	<div id="chooseCar"></div>
+	<div id="chooseCity"></div>
+	<div id="chooseProvince"></div>
+</body>
+<script src="js/jquery-3.2.0.min.js"></script>
+<script type="text/javascript" src="js/MultiPicker.js"></script>
+<script type="text/javascript">
+
+
+var submit = document.querySelector(".submit");
+// 提交信息
+tap(submit,function () {
+	var upData = {};
+	upData.name = $("#name").val();
+	upData.tel = $("#tel").val();
+	upData.tabcar = $("#tabcar").val();
+	upData.tabshop = $("#tabshop").val();
+	upData.tabcity = $("#tabcity").val();
+	upData.tabprovince = $("#tabprovince").val();
+	
+	if(upData.name==""){alert("请输入姓名！");return}
+	if(upData.tel==""){alert("请输入电话！");return}
+	if(!(/^1(3|4|5|7|8)\d{9}$/.test(upData.tel))){
+		alert('电话格式不正确，请重填！');
+		return false;
+	}
+	if(upData.tabcar==""){alert("请选择车型！");return}
+	if(upData.tabprovince==""){alert("请选择省份！");return}
+	if(upData.tabcity==""){alert("请选择城市！");return}
+	if(upData.tabshop==""){alert("请选择营销商！");return}
+
+	$.ajax({
+		type:"post",
+		url:"",
+		typeData:"json",
+		data:upData,
+		success:function(data){
+
+		}
+	})
+})
+	
+function tap(el,fn){
+	var isMoved = false;
+    var x = 0;   
+    var y = 0;            
+    el.addEventListener("touchstart",function(e){
+        isMoved = false;
+        x = e.touches[0].clientX;
+        y = e.touches[0].clientY;
+        e.preventDefault()
+    },false);
+    el.addEventListener("touchmove",function(e){
+        if (Math.abs(e.touches[0].clientX-x)+Math.abs(e.touches[0].clientY-y)>10) {
+            isMoved = true;
+        }                        
+    },false);
+    el.addEventListener("touchend",function(){
+        if (!isMoved) {
+            fn.call(this);
+        }
+    })
+}
+// 湖南经销商
+var hunan = [
+	{
+		"name":"株洲蓝马",
+		"tel":"0731-28454848",
+		"address":"株洲市国家汽车城品牌专卖区"
+	},
+	{
+		"name":"株洲市健车行",
+		"tel":"0731-22833777",
+		"address":"株洲市天元区黄河南路192号"
+	},
+	{
+		"name":"攸县健车行",
+		"tel":"0731-22063366",
+		"address":"攸县湘东汽贸城一汽大众4s店"
+	},
+	{
+		"name":"湖南中拓瑞众",
+		"tel":"0731-85226768",
+		"address":"湖南省长沙市芙蓉南路二段新省政府往南1.5KM（省工商局对面）"
+	},
+	{
+		"name":"湖南华洋",
+		"tel":"0731-85048888",
+		"address":"长沙市雨花区黄谷路308号"
+	},
+	{
+		"name":"湖南汽车城",
+		"tel":"0731-82870978",
+		"address":"长沙县星沙镇中南汽车世界经贸西路H08号"
+	},
+	{
+		"name":"湖南永通",
+		"tel":"0731-88389000",
+		"address":"长沙市望城区大泽湖街道吴家冲路28号"
+	},
+	{
+		"name":"湖南华洋众广",
+		"tel":"0731-88441111",
+		"address":"长沙市岳麓区高新开发区麓谷汽车城长四路"
+	},
+	{
+		"name":"浏阳永通",
+		"tel":"0731-83836888",
+		"address":"浏阳市关口工业小区"
+	},
+	{
+		"name":"湖南中拓瑞鑫",
+		"tel":"0731-87362568",
+		"address":"湖南省长沙市宁乡县白马桥乡仁福村（食品工业园）"
+	},
+	{
+		"name":"湖南长久博腾",
+		"tel":"073185919888",
+		"address":"湖南省长沙市岳麓区岳麓街道五星村99号"
+	},
+	{
+		"name":"长沙大汉",
+		"tel":"4000731118",
+		"address":"长沙市芙蓉区远大路与红旗路交汇处西南角"
+	},
+	{
+		"name":"张家界永通",
+		"tel":"0744-8565222",
+		"address":"张家界市永定区阳湖坪镇经济开发区C区九城汽车大世界（高速收 费站旁）"
+	},
+	{
+		"name":"湖南邦田",
+		"tel":"0730-8715498",
+		"address":"湖南省岳阳市巴陵东路"
+	},
+	{
+		"name":"岳阳大汉",
+		"tel":"0730-8572288",
+		"address":"湖南省岳阳城陵矶临港产业新区联港路"
+	},
+	{
+		"name":"平江县邦田",
+		"tel":"0730-6663189",
+		"address":"湖南省平江县城关镇寺前工业小区"
+	},
+	{
+		"name":"益阳永通",
+		"tel":"0737-2234567",
+		"address":"益阳市高新区益宁城际干道（火 车东站旁）"
+	},
+	{
+		"name":"湘潭东富",
+		"tel":"0731-55515888",
+		"address":"湘潭市九华示范区湘望路九华汽车大世界8号"
+	},
+	{
+		"name":"湘潭市健车行",
+		"tel":"0731-55188851",
+		"address":"湘潭市岳塘区双马镇迅达高科技示范园东侧"
+	},
+	{
+		"name":"湘乡湘健",
+		"tel":"0731-56977666",
+		"address":"湖南省湘乡市红仑大道汽车北站"
+	},
+	{
+		"name":"邵阳市宝庆",
+		"tel":"0739-5282528",
+		"address":"邵阳市宝庆东路169号"
+	},
+	{
+		"name":"娄底大汉",
+		"tel":"0738-8813111/8813222",
+		"address":"湖南省娄底市娄星区大科办事处大新居委会"
+	},
+	{
+		"name":"湘西永通",
+		"tel":"0743-8711777",
+		"address":"湖南省吉首市湘西经济开发区内（湘西民族职业技术学院对面）"
+	},
+	{
+		"name":"怀化春茂",
+		"tel":"0745-2836888",
+		"address":"怀化市包茂高速公路出入口一汽大众4S店"
+	},
+	{
+		"name":"怀化永通",
+		"tel":"0745-2333666",
+		"address":"湖南省怀化市鹤城区南环路（怀 化国际汽车城内）"
+	},
+	{
+		"name":"衡阳市西城",
+		"tel":"0734-8517777",
+		"address":"衡阳市望城坳107国道叉路口"
+	},
+	{
+		"name":"衡阳长久博华",
+		"tel":"0734-8121111",
+		"address":"衡阳市蒸湘区杨柳村二组"
+	},
+	{
+		"name":"郴州永通",
+		"tel":"0735-2267888",
+		"address":"湖南省郴州市苏仙区锁石路东侧"
+	},
+	{
+		"name":"郴州华运通",
+		"tel":"07353388333",
+		"address":"郴州市北湖区保和镇大桥村万华汽车城内"
+	},
+	{
+		"name":"常德裕安",
+		"tel":"0736-7809888",
+		"address":"湖南省常德市武陵区南坪乡常德大道新世纪汽车城内"
+	}
+]
+// 广东经销商
+var guangdong = [
+	{
+		"name":"广东",
+		"tel":"",
+		"address":""
+	}
+]
+// 广西经销商
+var guangxi = [
+	{
+		"name":"广西",
+		"tel":"",
+		"address":""
+	}
+]
+// 福建经销商
+var fujian = [
+	{
+		"name":"福建",
+		"tel":"",
+		"address":""
+	}
+]
+// 海南经销商
+var hainan = [
+	{
+		"name":"海南",
+		"tel":"",
+		"address":""
+	}
+]
+// 江西经销商
+var jiangxi = [
+	{
+		"name":"江西",
+		"tel":"",
+		"address":""
+	}
+]
+var shop_data = [
+	hunan,
+	guangdong,
+	guangxi,
+	fujian,
+	hainan,
+	jiangxi
+]
+shopChange(0)
+function shopChange(index){
+	var $shop_con = $(".shop_con");
+	var ul = null;
+	var arr = shop_data[index]
+	$shop_con.html("");
+	for (var i = 0; i < arr.length; i++) {	
+		var li = $("<li><h4>"+arr[i].name+"</h4><p>"+arr[i].tel+"</p><p>"+arr[i].address+"</p></li>");
+		if (i%2==0) {
+			ul = $("<ul></ul>");
+			// console.log(ul)
+			$shop_con.append(ul);
+		}
+		ul.append(li);	
+	}
+}
+
+var select_li = $(".select_wrap li");
+for (var i = 0; i < select_li.length; i++) {
+	tap(select_li[i],function () {
+		var index = $(this).index(".select_wrap li")
+		select_li.removeClass("select");
+		$(this).addClass("select");
+		shopChange(index)
+	})
+}
+
+var btn = document.querySelector(".btn");
+window.onload = function () {
+	var top = $("form").offset().top+10;
+	$(btn).css("top",top)
+}
+tap(btn,function(){
+	var top = $(".header").height();
+	$(window).scrollTop(top);
+})
+
+Cartype()
+function Cartype() {
+	var car = [
+		{id:001,value:"C-trek蔚领"},
+		{id:002,value:"宝来"},
+		{id:003,value:"高尔夫"},
+		{id:004,value:"高尔夫·嘉旅"},
+		{id:005,value:"捷达"},
+		{id:006,value:"迈腾"},
+		{id:007,value:"速腾"}
+	];
+	new MultiPicker({
+        input: 'tabcar', //点击触发插件的input框的id
+        container: 'chooseCar', //插件插入的容器id
+        jsonData: car,
+        success: function(arr) {
+            // console.log(arr);
+            // console.log(arr[0].value)
+            tabcar.value = arr[0].value;
+     	} //回调
+    });
+}
+Province()
+function Province() {
+	var province = [{id:001,value:"湖南"},{id:002,value:"广东"},{id:003,value:"广西"},{id:004,value:"福建"},{id:005,value:"海南"},{id:006,value:"江西"}];
+	new MultiPicker({
+        input: 'tabprovince', //点击触发插件的input框的id
+        container: 'chooseProvince', //插件插入的容器id
+        jsonData: province,
+        success: function(arr) {
+            // console.log(arr);
+            // console.log(arr[0].value)
+            tabprovince.value = arr[0].value;
+            tabcity.value = "";
+            tabshop.value = "";
+            City(arr[0].value)
+     	} //回调
+    });
+}
+	
+
+function City(name) {
+	var city = [
+			{"name":"湖南",data:[{id:001,value:"长沙市"},{id:001,value:"益阳市"},{id:001,value:"岳阳市"},{id:001,value:"永州市"},{id:001,value:"湘潭市"},{id:001,value:"郴州市"},{id:001,value:"株洲市"},{id:001,value:"衡阳市"},{id:001,value:"娄底市"},{id:001,value:"怀化市"},{id:001,value:"常德市"},{id:001,value:"邵阳市"},{id:001,value:"吉首市"},{id:001,value:"张家界市"}]},
+			{"name":"广东",data:[{id:001,value:"广州市"},{id:001,value:"湛江市"},{id:001,value:"中山市"},{id:001,value:"阳江市"},{id:001,value:"茂名市"},{id:001,value:"珠海市"},{id:001,value:"深圳市"},{id:001,value:"揭阳市"},{id:001,value:"潮州市"},{id:001,value:"汕头市"},{id:001,value:"汕尾市"},{id:001,value:"韶关市"},{id:001,value:"东莞市"},{id:001,value:"河源市"},{id:001,value:"梅州市"},{id:001,value:"惠州市"},{id:001,value:"清远市"},{id:001,value:"肇庆市"},{id:001,value:"江门市"},{id:001,value:"佛山市"}]},
+			{"name":"广西",data:[{id:001,value:"桂林市"},{id:001,value:"玉林市"},{id:001,value:"贵港市"},{id:001,value:"河池市"},{id:001,value:"柳州市"},{id:001,value:"南宁市"},{id:001,value:"百色市"},{id:001,value:"北海市"},{id:001,value:"钦州市"}]},
+			{"name":"福建",data:[{id:001,value:"厦门市"},{id:001,value:"漳州市"},{id:001,value:"泉州市"},{id:001,value:"龙岩市"},{id:001,value:"三明市"},{id:001,value:"南平市"},{id:001,value:"宁德市"},{id:001,value:"莆田市"},{id:001,value:"福州市"}]},
+			{"name":"海南",data:[{id:001,value:"海口市"},{id:001,value:"三亚市"}]},
+			{"name":"江西",data:[{id:001,value:"地级市"},{id:001,value:"赣州市"},{id:001,value:"九江市"},{id:001,value:"宜春市"},{id:001,value:"萍乡市"},{id:001,value:"鹰潭市"},{id:001,value:"九江市"},{id:001,value:"南昌市"}]}
+		];
+	for (var i = 0; i < city.length; i++) {
+		if (city[i].name==name) {
+			break;
+		}
+	}
+	new MultiPicker({
+        input: 'tabcity', //点击触发插件的input框的id
+        container: 'chooseCity', //插件插入的容器id
+        jsonData: city[i].data,
+        success: function(arr) {
+            // console.log(arr);
+            // console.log(arr[0].value)
+            tabcity.value = arr[0].value;
+            tabshop.value = "";
+            Shop(arr[0].value)
+     	} //回调
+    });
+}
+
+function Shop (city){
+
+	var shop =[
+		{"name":"湖南中拓瑞众汽车销售服务有限公司","province":"湖南","city":"长沙市"},
+		{"name":"益阳永通汽车销售服务有限公司","province":"湖南","city":"益阳市"},
+		{"name":"湖南华洋汽车贸易有限公司","province":"湖南","city":"长沙市"},
+		{"name":"湖南邦田汽车服务有限公司","province":"湖南","city":"岳阳市"},
+		{"name":"湖南汽车城永通有限公司","province":"湖南","city":"长沙市"},
+		{"name":"湖南永通汽车销售服务有限公司","province":"湖南","city":"长沙市"},
+		{"name":"湖南华洋众广汽车销售服务有限公司","province":"湖南","city":"长沙市"},
+		{"name":"浏阳永通汽车销售服务有限公司","province":"湖南","city":"长沙市"},
+		{"name":"湖南中拓瑞鑫汽车销售服务有限公司","province":"湖南","city":"长沙市"},
+		{"name":"岳阳大汉汽贸有限公司","province":"湖南","city":"岳阳市"},
+		{"name":"湖南长久博腾汽车销售服务有限公司","province":"湖南","city":"长沙市"},
+		{"name":"长沙大汉汽车贸易有限公司","province":"湖南","city":"长沙市"},
+		{"name":"平江县邦田汽车服务有限公司","province":"湖南","city":"岳阳市"},
+		{"name":"湛江市正日汽车贸易有限公司","province":"广东","city":"湛江市"},
+		{"name":"中山市众腾汽车有限公司","province":"广东","city":"中山市"},
+		{"name":"阳江安捷源众汽车销售服务有限公司","province":"广东","city":"阳江市"},
+		{"name":"中山市创世纪汽车有限公司","province":"广东","city":"中山市"},
+		{"name":"茂名市茂南茂汉汽车贸易有限公司","province":"广东","city":"茂名市"},
+		{"name":"珠海市香洲一汽汽车销售有限公司","province":"广东","city":"珠海市"},
+		{"name":"珠海市珠光汽车有限公司","province":"广东","city":"珠海市"},
+		{"name":"中山庞大一众汽车销售服务有限公司","province":"广东","city":"中山市"},
+		{"name":"海南博世汽车服务有限公司","province":"海南","city":"海口市"},
+		{"name":"海南博众汽车销售有限公司","province":"海南","city":"海口市"},
+		{"name":"三亚长久博众汽车服务有限公司","province":"海南","city":"三亚市"},
+		{"name":"深圳市南方腾龙汽车销售服务有限公司","province":"广东","city":"深圳市"},
+		{"name":"揭阳合和汽车销售服务有限公司","province":"广东","city":"揭阳市"},
+		{"name":"深圳市北奇建贸易有限公司","province":"广东","city":"深圳市"},
+		{"name":"潮州市通达汽车贸易有限公司","province":"广东","city":"潮州市"},
+		{"name":"深圳市安进汽车贸易有限公司","province":"广东","city":"深圳市"},
+		{"name":"深圳市昊天林实业有限公司","province":"广东","city":"深圳市"},
+		{"name":"汕头市裕丰交通经济发展有限公司","province":"广东","city":"汕头市"},
+		{"name":"深圳市奇建贸易有限公司","province":"广东","city":"深圳市"},
+		{"name":"深圳市清水河奇建贸易有限公司","province":"广东","city":"深圳市"},
+		{"name":"汕头市庞大一众汽车销售服务有限公司","province":"广东","city":"汕头市"},
+		{"name":"深圳市昊天林安琪汽车有限公司","province":"广东","city":"深圳市"},
+		{"name":"汕尾市君乐汽车销售服务有限公司","province":"广东","city":"汕尾市"},
+		{"name":"湖南省永州市永恒汽车贸易有限公司","province":"湖南","city":"永州市"},
+		{"name":"湘潭东富汽车销售服务有限公司","province":"湖南","city":"湘潭市"},
+		{"name":"郴州永通汽车销售服务有限公司","province":"湖南","city":"郴州市"},
+		{"name":"株洲蓝马汽车销售服务有限公司","province":"湖南","city":"株洲市"},
+		{"name":"衡阳市西城汽车经贸有限公司","province":"湖南","city":"衡阳市"},
+		{"name":"湘潭市健车行汽车服务有限公司","province":"湖南","city":"湘潭市"},
+		{"name":"株洲市健车行汽车服务有限公司","province":"湖南","city":"株洲市"},
+		{"name":"衡阳长久博华汽车销售服务有限公司","province":"湖南","city":"衡阳市"},
+		{"name":"湘乡湘健汽车服务有限公司","province":"湖南","city":"湘潭市"},
+		{"name":"攸县健车行汽车服务有限公司","province":"湖南","city":"株洲市"},
+		{"name":"郴州华运通汽车销售服务有限公司","province":"湖南","city":"郴州市"},
+		{"name":"娄底大汉汽车贸易有限公司","province":"湖南","city":"娄底市"},
+		{"name":"怀化春茂汽车销售服务有限公司","province":"湖南","city":"怀化市"},
+		{"name":"怀化永通汽车销售服务有限公司","province":"湖南","city":"怀化市"},
+		{"name":"常德裕安贸易有限公司","province":"湖南","city":"常德市"},
+		{"name":"邵阳市宝庆汽车超市有限公司","province":"湖南","city":"邵阳市"},
+		{"name":"湘西永通汽车销售服务有限公司","province":"湖南","city":"吉首市"},
+		{"name":"张家界永通汽车销售服务有限公司","province":"湖南","city":"张家界市"},
+		{"name":"厦门致远汽车有限公司","province":"福建","city":"厦门市"},
+		{"name":"厦门君达汽车有限公司","province":"福建","city":"厦门市"},
+		{"name":"漳州致远汽车有限公司","province":"福建","city":"漳州市"},
+		{"name":"厦门明至汽车有限公司","province":"福建","city":"厦门市"},
+		{"name":"厦门市盈众汽车销售有限公司","province":"福建","city":"厦门市"},
+		{"name":"晋江市金阳汽车销售有限公司","province":"福建","city":"泉州市"},
+		{"name":"泉州盈众汽车销售服务有限公司","province":"福建","city":"泉州市"},
+		{"name":"漳州盈众汽车销售服务有限公司","province":"福建","city":"漳州市"},
+		{"name":"泉州大众汽车销售服务有限公司","province":"福建","city":"泉州市"},
+		{"name":"南安盈众汽车销售服务有限公司","province":"福建","city":"泉州市"},
+		{"name":"惠安盈众汽车销售服务有限公司","province":"福建","city":"泉州市"},
+		{"name":"安溪华迪汽车销售服务有限公司","province":"福建","city":"泉州市"},
+		{"name":"龙岩盈众汽车有限公司","province":"福建","city":"龙岩市"},
+		{"name":"龙岩市众邦汽车贸易有限公司","province":"福建","city":"龙岩市"},
+		{"name":"三明盈众汽车有限公司","province":"福建","city":"三明市"},
+		{"name":"福州盈众汽车有限公司","province":"福建","city":"福州市"},
+		{"name":"南平盈众汽车有限公司","province":"福建","city":"南平市"},
+		{"name":"宁德盈众汽车有限公司","province":"福建","city":"宁德市"},
+		{"name":"福州致远汽车销售服务有限公司","province":"福建","city":"福州市"},
+		{"name":"福建永通达汽车贸易有限公司","province":"福建","city":"福州市"},
+		{"name":"福州永力通汽车贸易有限公司","province":"福建","city":"福州市"},
+		{"name":"莆田市奇奇贸易发展有限公司","province":"福建","city":"莆田市"},
+		{"name":"福建省福京汽车贸易有限公司","province":"福建","city":"福州市"},
+		{"name":"赣州金涛汽车销售服务有限公司","province":"江西","city":"赣州市"},
+		{"name":"江西晨元汽车销售服务有限公司","province":"江西","city":"赣州市"},
+		{"name":"南昌欧亚汽车销售有限公司","province":"江西","city":"南昌市"},
+		{"name":"九江宏达汽车贸易有限公司","province":"江西","city":"九江市"},
+		{"name":"江西佳辉汽车贸易服务有限公司","province":"江西","city":"宜春市"},
+		{"name":"萍乡市永安昌荣实业有限公司","province":"江西","city":"萍乡市"},
+		{"name":"江西华宏名众汽车有限公司","province":"江西","city":"南昌市"},
+		{"name":"江西协众汽车发展有限公司","province":"江西","city":"南昌市"},
+		{"name":"鹰潭华宏汽车有限公司","province":"江西","city":"鹰潭市"},
+		{"name":"九江九源汽车销售服务有限公司","province":"江西","city":"九江市"},
+		{"name":"南昌恒信一路汽车销售服务有限公司","province":"江西","city":"南昌市"},
+		{"name":"韶关市亿华汽车贸易有限公司","province":"广东","city":"韶关市"},
+		{"name":"广州市健稳汽车贸易有限公司","province":"广东","city":"广州市"},
+		{"name":"广州市大吉汽车销售服务有限公司","province":"广东","city":"广州市"},
+		{"name":"广州市南菱万众汽车维修服务有限公司","province":"广东","city":"广州市"},
+		{"name":"广州市梅花园汽车销售服务有限公司","province":"广东","city":"广州市"},
+		{"name":"广州市锦众汽车贸易有限公司","province":"广东","city":"广州市"},
+		{"name":"广东物通凯骏汽车有限公司","province":"广东","city":"广州市"},
+		{"name":"广东君乐汽车贸易有限公司","province":"广东","city":"广州市"},
+		{"name":"广州市安捷鑫众汽车有限公司","province":"广东","city":"广州市"},
+		{"name":"广州庞大一众汽车销售服务有限公司","province":"广东","city":"广州市"},
+		{"name":"广州庞大兴众汽车销售有限公司","province":"广东","city":"广州市"},
+		{"name":"桂林鑫广达汽车销售服务有限责任公司","province":"广西","city":"桂林市"},
+		{"name":"玉林市弘标汽车销售服务有限公司","province":"广西","city":"玉林市"},
+		{"name":"贵港市弘捷汽车销售服务有限公司","province":"广西","city":"贵港市"},
+		{"name":"河池市弘捷汽车销售服务有限公司","province":"广西","city":"河池市"},
+		{"name":"柳州市盛铭汽车贸易有限公司","province":"广西","city":"柳州市"},
+		{"name":"广西鑫广达长久汽车商贸有限公司","province":"广西","city":"南宁市"},
+		{"name":"广西弘捷汽车销售服务有限公司","province":"广西","city":"南宁市"},
+		{"name":"柳州鑫广达博腾汽车销售服务有限公司","province":"广西","city":"柳州市"},
+		{"name":"广西鑫广达博冠汽车销售服务有限公司","province":"广西","city":"南宁市"},
+		{"name":"百色鑫广达长久汽车销售服务有限公司","province":"广西","city":"百色市"},
+		{"name":"北海鑫广达博鑫汽车销售服务有限公司","province":"广西","city":"北海市"},
+		{"name":"钦州弘捷汽车销售服务有限公司","province":"广西","city":"钦州市"},
+		{"name":"东莞市鸿众汽车销售服务有限公司","province":"广东","city":"东莞市"},
+		{"name":"东莞市锦众汽车贸易有限公司","province":"广东","city":"东莞市"},
+		{"name":"东莞市捷达通贸易有限公司","province":"广东","city":"东莞市"},
+		{"name":"东莞市新大地汽车贸易有限公司","province":"广东","city":"东莞市"},
+		{"name":"东莞市昌发汽车贸易有限公司","province":"广东","city":"东莞市"},
+		{"name":"东莞市东深奇建汽车销售服务有限公司","province":"广东","city":"东莞市"},
+		{"name":"东莞庞大一众汽车销售服务有限公司","province":"广东","city":"东莞市"},
+		{"name":"河源市德宝汽车贸易有限公司","province":"广东","city":"河源市"},
+		{"name":"梅州市新宇汽车销售服务有限公司","province":"广东","city":"梅州市"},
+		{"name":"惠州市志通恒泰汽车销售服务有限公司","province":"广东","city":"惠州市"},
+		{"name":"惠州市金瑞欣汽车销售有限公司","province":"广东","city":"惠州市"},
+		{"name":"清远南方合众汽车销售服务有限公司","province":"广东","city":"清远市"},
+		{"name":"佛山市英丰汽车销售服务有限公司","province":"广东","city":"佛山市"},
+		{"name":"肇庆市安迅汽车有限公司","province":"广东","city":"肇庆市"},
+		{"name":"佛山市瀚众汽车贸易服务有限公司","province":"广东","city":"佛山市"},
+		{"name":"佛山时利和众联汽车销售服务有限公司","province":"广东","city":"佛山市"},
+		{"name":"佛山市合诚汽车销售服务有限公司","province":"广东","city":"佛山市"},
+		{"name":"佛山市南海区拓华汽车贸易有限公司","province":"广东","city":"佛山市"},
+		{"name":"江门市新众汽车销售服务有限公司","province":"广东","city":"江门市"},
+		{"name":"佛山市顺德区世锦汽车贸易有限公司","province":"广东","city":"佛山市"},
+		{"name":"江门市钜荣汽车销售服务有限公司","province":"广东","city":"江门市"},
+		{"name":"佛山市广物君乐汽车销售服务有限公司","province":"广东","city":"佛山市"}
+	]
+
+	var arr = [];
+	for (var i = 0; i < shop.length; i++) {
+		if (shop[i].city==city) {
+			arr.push({id:i,value:shop[i].name})
+		}
+	}
+	new MultiPicker({
+        input: 'tabshop', //点击触发插件的input框的id
+        container: 'chooseShop', //插件插入的容器id
+        jsonData: arr,
+        success: function(arr) {
+            // console.log(arr);
+            // console.log(arr[0].value)
+            tabshop.value = arr[0].value;
+     	} //回调
+    });
+
+}
+</script>
+</html>

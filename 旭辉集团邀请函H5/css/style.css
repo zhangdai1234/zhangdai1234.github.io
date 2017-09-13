@@ -1,0 +1,72 @@
+*{margin: 0;padding: 0;-webkit-tap-highlight-color:transparent;}
+img{vertical-align: middle;}
+ul{list-style: none;}
+html,body{width: 100%;height: 100%;min-height: 480px;}
+body{font-size: 12px;}
+#wrap{width: 100%;height: 100%;position: relative;max-width: 640px;margin: auto;overflow: hidden;}
+.swiper-container{width: 100%;height: 100%;position: relative;max-width: 640px;}
+.swiper-wrapper{height: 100%;width: 100%;}
+.swiper-slide{height: 100%;width: 100%;}
+
+.logo{position: absolute;top: 7%;left: 10%;width: 27%;}
+.next{position: absolute;left: 0;right: 0;bottom: 8%;margin: auto;width: 19%;}
+.swiper-slide{position: relative;}
+.page1{background-image: url(../images/page1_bg.jpg);background-size:cover;background-position: center bottom;}
+.page1 .font{position: absolute;left: 10%;width: 76%;top: 20%;}
+.page1 .yao{position: absolute;left: 10%;width:34%;top:53%;}
+
+.page2{background-image: url(../images/page2_bg.jpg);background-size:cover;background-position: center bottom;}
+.page2 .font{position: absolute;width: 80%;top:17%;left: 10%;}
+
+.page3{background-image: url(../images/page3_bg.jpg);background-size:cover;background-position: center bottom;}
+.page3 .font{position: absolute;width: 82%;top:13%;left: 10%;}
+
+.page4{background-image: url(../images/page4_bg.jpg);background-size:cover;background-position: center bottom;}
+.page4 .font{position: absolute;width: 81%;top:13%;left: 10%;}
+
+.page5{background-image: url(../images/page5_bg.jpg);background-size:cover;background-position: center bottom;}
+.page5 .font{position: absolute;width: 78%;top:25%;left: 11%;}
+
+.page6{background-image: url(../images/page6_bg.jpg);background-size:cover;background-position: center bottom;}
+.page6 .font{position: absolute;width: 81%;top:16%;left: 10%;}
+
+.page7{background-image: url(../images/page7_bg.jpg);background-size:cover;background-position: center bottom;}
+.page7 .font{position: absolute;width: 84%;top:14%;left: 8%;}
+
+.page8{background-image: url(../images/page8_bg.jpg);background-size:cover;background-position: center bottom;}
+.page8 .font{position: absolute;width: 78%;top:17%;left: 11%;}
+
+.page9{background-image: url(../images/page9_bg.jpg);background-size:cover;background-position: center bottom;}
+.page9 .font{position: absolute;width: 74%;top:15%;left: 13%;}
+
+.page10{background-image: url(../images/page10_bg.jpg);background-size:cover;background-position: center bottom;}
+.page10 .font{height: 100%;}
+.page10 .font_wrap{position: absolute;height: 100%;left: 22%;}
+.page10 .font1{position: absolute;height: 20%;left: 50%;top: 17%;}
+.page10 .font2{position: absolute;height: 20%;left: 53%;top: 38%;}
+.page10 .font3{position: absolute;height: 20%;left: -16%;top: 46%;}
+.page10 .font4{position: absolute;height: 12%;left: -1%;top: 69%;}
+
+.page11{background-image: url(../images/page11_bg.jpg);background-size:cover;background-position: center bottom;}
+.page11 .font{position: absolute;width: 82%;top:16%;left: 0;right: 0;margin: auto;}
+
+
+
+.next_move{
+  -webkit-animation-name: next_move;
+  animation-name: next_move;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  -webkit-animation-fill-mode: none;
+  animation-fill-mode: none;
+}
+@-webkit-keyframes next_move{
+	from{opacity: 1;}
+	50%{opacity: 0;}
+	to{opacity: 1;}
+}
+@keyframes next_move{
+	from{opacity: 1;}
+	50%{opacity: 0;}
+	to{opacity: 1;}
+}

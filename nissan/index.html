@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<title></title>
+	<link rel=" stylesheet " type="text/css " href="css/MultiPicker.css">
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<script>
+(function(html){
+	change()
+	function change(){
+		var w = html.clientWidth
+		if (w>640) {w=640;}
+			var size = 100*(w/375).toFixed(2)
+			html.style.fontSize = size+"px"
+		}
+		window.addEventListener('resize',function(){
+		change()
+	})
+})(document.documentElement)
+</script>
+<body>
+	<div class="wrap">
+		<div class="header"><img src="images/header.jpg" alt=""></div>
+		<div class="title"><img src="images/title.png" alt=""></div>
+		<div class="content"><img src="images/content.png" alt=""></div>
+		<form action="">
+			<div class="row">
+				<label for="name">姓名</label>
+				<input type="text" id="name">
+			</div>
+			<div class="row">
+				<label for="tel">电话</label>
+				<input type="text" id="tel">
+			</div>
+			<div class="row v">
+				<label for="tabcar">车型</label>
+				<input type="text" id="tabcar" readonly placeholder="请选择">
+			</div>
+			<div class="row v">
+				<label for="tabshop">经销商</label>
+				<input type="text" id="tabshop" readonly placeholder="请选择">
+			</div>
+			<div class="submit">
+				<img src="images/submit.png" alt="">
+			</div>
+			<img class="btn" src="images/btn.png" alt="">
+		</form>
+		<div class="img">
+			<img src="images/t1.jpg" alt="">
+			<img src="images/t2.jpg" alt="">
+			<img src="images/t3.jpg" alt="">
+			<img src="images/t4.jpg" alt="">
+		</div>
+		<div class="shop">
+			<div class="shop_title"><img src="images/title2.png" alt=""></div>
+			<ul>
+				<li>
+					<h4>深圳华鹏4S店</h4>
+					<p>0755-82378225</p>
+					<p>深圳市罗湖区延芳路东益汽车交易 广场二期D1区</p>
+				</li>
+				<li>
+					<h4>深圳华瑞4S店</h4>
+					<p>0755-83888866</p>
+					<p>深圳市福田区深南大道6068号联 合华鹏汽车交易广场C1-2</p>
+				</li>
+				<li>
+					<h4>深圳华新4S店</h4>
+					<p>0755-27473022</p>
+					<p>深圳市宝安区前进一路与新安四路 交汇处，天虹沃尔玛旁</p>
+				</li>
+				<li>
+					<h4>深圳华龙4S店</h4>
+					<p>0755-27706789</p>
+					<p>深圳市龙华新区布龙路龙胜新村 B区281号</p>
+				</li>
+				<li>
+					<h4>深圳华翔4S店</h4>
+					<p>0755-89628111</p>
+					<p>深圳市龙岗中心城如意路与沙园路 交叉段（龙城街道办旁）</p>
+				</li>
+				<li>
+					<h4>深圳华昌4S店</h4>
+					<p>0755-23158889</p>
+					<p>深圳市宝安区福永立新路与福洲 大道交汇处花园酒店旁</p>
+				</li>
+				<li>
+					<h4>深圳裕朋4S店</h4>
+					<p>0755-88316602</p>
+					<p>深圳市福田区北环大道7028号（香梅北天桥旁）</p>
+				</li>
+				<li>
+					<h4>深圳华景4S店</h4>
+					<p>0755-89762999</p>
+					<p>深圳市龙岗大道信义汽车城</p>
+				</li>
+				<li>
+					<h4>深圳华旭4S店</h4>
+					<p>0755-26720506</p>
+					<p>深圳市南山区白石路桂庙新村118 号（深圳大学南门旁）</p>
+				</li>
+				<li>
+					<h4>深圳华盛4S店</h4>
+					<p>0755-28030666</p>
+					<p>深圳市龙华新区观澜福兴围社区 观平路182号</p>
+				</li>
+				<li>
+					<h4>深圳新大兴4S店</h4>
+					<p>0755-27283502</p>
+					<p>深圳市宝安区沙井西环路2111号（海上田园路口）</p>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<div id="chooseShop"></div>
+	<div id="chooseCar"></div>
+</body>
+<script src="js/jquery-3.2.0.min.js"></script>
+<script type="text/javascript" src="js/MultiPicker.js"></script>
+<script type="text/javascript">
+
+var submit = document.querySelector(".submit");
+// 提交信息
+tap(submit,function () {
+	var upData = {};
+	upData.name = $("#name").val();
+	upData.tel = $("#tel").val();
+	upData.tabcar = $("#tabcar").val();
+	upData.tabshop = $("#tabshop").val();
+	
+	if(upData.name==""){alert("请输入姓名！");return}
+	if(upData.tel==""){alert("请输入电话！");return}
+	if(!(/^1(3|4|5|7|8)\d{9}$/.test(upData.tel))){
+		alert('电话格式不正确，请重填！');
+		return false;
+	}
+	if(upData.tabcar==""){alert("请选择车型！");return}
+	if(upData.tabshop==""){alert("请选择营销商！");return}
+
+	$.ajax({
+		type:"post",
+		url:"",
+		typeData:"json",
+		data:upData,
+		success:function(data){
+
+		}
+	})
+})
+	
+function tap(el,fn){
+	var isMoved = false;
+    var x = 0;   
+    var y = 0;            
+    el.addEventListener("touchstart",function(e){
+        isMoved = false;
+        x = e.touches[0].clientX;
+        y = e.touches[0].clientY;
+        e.preventDefault()
+    },false);
+    el.addEventListener("touchmove",function(e){
+        if (Math.abs(e.touches[0].clientX-x)+Math.abs(e.touches[0].clientY-y)>10) {
+            isMoved = true;
+        }                        
+    },false);
+    el.addEventListener("touchend",function(){
+        if (!isMoved) {
+            fn(this);
+        }
+    })
+}
+
+
+var btn = document.querySelector(".btn");
+window.onload = function () {
+	var top = $("form").offset().top+3;
+	$(btn).css("top",top)
+}
+tap(btn,function(){
+	var top = $(".header").height();
+	$(window).scrollTop(top);
+})
+
+Cartype()
+function Cartype() {
+	var car = [
+		{
+			id:001,
+			value:"全新轩逸"
+		}
+	];
+	new MultiPicker({
+        input: 'tabcar', //点击触发插件的input框的id
+        container: 'chooseCar', //插件插入的容器id
+        jsonData: car,
+        success: function(arr) {
+            // console.log(arr);
+            // console.log(arr[0].value)
+            tabcar.value = arr[0].value;
+     	} //回调
+    });
+}
+Shop()
+function Shop (){
+	var shop = [
+		{
+			id:001,
+			value:"深圳华鹏4S店"
+		},
+		{
+			id:002,
+			value:"深圳华新4S店"
+		},
+		{
+			id:003,
+			value:"深圳华翔4S店"
+		},
+		{
+			id:004,
+			value:"深圳裕朋4S店"
+		},
+		{
+			id:005,
+			value:"深圳华旭4S店"
+		},
+		{
+			id:006,
+			value:"深圳新大兴4S店"
+		},
+		{
+			id:007,
+			value:"深圳华瑞4S店"
+		},
+		{
+			id:008,
+			value:"深圳华龙4S店"
+		},
+		{
+			id:009,
+			value:"深圳华昌4S店"
+		},
+		{
+			id:010,
+			value:"深圳华景4S店"
+		},
+		{
+			id:011,
+			value:"深圳华盛4S店"
+		},
+	] 
+	new MultiPicker({
+        input: 'tabshop', //点击触发插件的input框的id
+        container: 'chooseShop', //插件插入的容器id
+        jsonData: shop,
+        success: function(arr) {
+            // console.log(arr);
+            // console.log(arr[0].value)
+            tabshop.value = arr[0].value;
+     	} //回调
+    });
+
+}
+</script>
+</html>

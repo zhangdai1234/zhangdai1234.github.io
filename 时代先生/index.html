@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <!-- <base href="http://sdxs.h5.cdn.gobrand.top/" /> -->
+    <link rel="stylesheet" href="CSS/swiper.min.css">
+    <link rel="stylesheet" href="CSS/animate.min.css">
+    <link rel="stylesheet" href="CSS/sdxs.css">
+    <title>【寻找时代先生】时代地产内部讲师培养计划</title>
+</head>
+
+<body>
+<img src="images/share.jpg" style="position: absolute;top: 0;left: 0;opacity: 0;" />
+<div id="loading" class="">
+    <img src="images/loading1.png" alt="">
+    <div></div>
+    <p>0%</p>
+</div>
+<!-- <audio src="__PUBLIC__/sound/bg.mp3" autoplay loop></audio> -->
+<audio src="sound/bg.aac" preload loop autoplay id="audio"></audio>
+<script type="text/javascript">
+function audioAutoPlay(id){
+    var audio = document.getElementById(id);
+    audio.play();
+    //addEventListener  绑定事件(事件，执行的函数，bol值可填)
+    document.addEventListener("WeixinJSBridgeReady", function () {  //  微信
+            audio.play();
+    }, false);
+    document.addEventListener('YixinJSBridgeReady', function() {    //  易信
+        audio.play();   //  play播放
+    }, false);
+}
+audioAutoPlay('audio');
+// 字体设置
+(function(html){
+    change()
+    function change(){
+        var w = html.clientWidth
+        if (w>640) {w=640;}
+        var size = 100*(w/375).toFixed(2)
+        html.style.fontSize = size+"px"
+    }
+    window.addEventListener('resize',function(){
+        change()
+    })
+})(document.documentElement)
+</script>
+<script src="js/jquery-3.1.0.min.js"></script>
+<script src="js/vue.min.js"></script>
+<script src="js/swiper.min.js"></script>
+<script src="js/swiper.animate.min.js"></script>
+<script src="js/iscroll.min.js"></script>
+<script src="js/jweixin-1.0.0.js"></script>
+<script src="js/sdxs.js"></script>
+<div id="wrap">
+<div class="swiper-container">
+    <div class="swiper-wrapper">
+        <!-- 第一页 -->
+        <div class="swiper-slide one page1">
+            <img class="logo ani" src="images/logo.png" swiper-animate-effect="fadeInLeft" swiper-animate-duration="0.4s" swiper-animate-delay="0.3s">
+            <img class="bg ani" src="images/page1_bg.png" swiper-animate-effect="fadeIn" swiper-animate-duration="0.4s" swiper-animate-delay="0.5s">
+            <img class="sdxs ani" src="images/sdxs.png" swiper-animate-effect="bounceIn" swiper-animate-duration="0.4s" swiper-animate-delay="0.8s">
+            <img class="font ani" src="images/page1_font.png" swiper-animate-effect="fadeInLeft" swiper-animate-duration="0.4s" swiper-animate-delay="1s">
+            <img class="kz ani" src="images/kz.png" swiper-animate-effect="fadeInRight" swiper-animate-duration="0.4s" swiper-animate-delay="1.3s">
+            <div class="tears ani" swiper-animate-effect="tears_move" swiper-animate-duration="0.2s" swiper-animate-delay="2s"></div>  
+            <img class="down ani" src="images/down.png" swiper-animate-effect="down_move" swiper-animate-duration="1s" swiper-animate-delay="2.5s">
+            <div class="music" v-tap="{fn:music,value:''}"><img class="music_move" v-if="music_bol" src="images/music1.png"><img v-else src="images/music2.png"></div>        
+        </div>
+
+        <!-- 第二页 -->
+        <div class="swiper-slide one page2">
+            <img class="logo ani" src="images/logo.png" swiper-animate-effect="fadeInLeft" swiper-animate-duration="0.4s" swiper-animate-delay="0.3s">
+            <img class="bg ani" src="images/page2_bg.png" swiper-animate-effect="fadeIn" swiper-animate-duration="0.4s" swiper-animate-delay="0.5s">
+            <img class="sdxs ani" src="images/sdxs.png" swiper-animate-effect="bounceIn" swiper-animate-duration="0.4s" swiper-animate-delay="0.8s">
+            <img class="font ani" src="images/page2_font.png" swiper-animate-effect="fadeInLeft" swiper-animate-duration="0.4s" swiper-animate-delay="1s">
+            <img class="plato ani" src="images/plato.png" swiper-animate-effect="fadeInRight" swiper-animate-duration="0.4s" swiper-animate-delay="1.3s">
+            <img class="heart ani" src="images/heart.png" swiper-animate-effect="heart_move" swiper-animate-duration="0.5s" swiper-animate-delay="2s">
+            <img class="down ani" src="images/down.png" swiper-animate-effect="down_move" swiper-animate-duration="1s" swiper-animate-delay="2.5s">
+            <div class="music" v-tap="{fn:music,value:''}"><img class="music_move" v-if="music_bol" src="images/music1.png"><img v-else src="images/music2.png"></div>         
+        </div>
+
+        <!-- 第三页 -->
+        <div class="swiper-slide one page3">            
+            <img class="logo ani" src="images/logo.png" swiper-animate-effect="fadeInLeft" swiper-animate-duration="0.4s" swiper-animate-delay="0.3s">
+            <img class="bg ani" src="images/page3_bg.png" swiper-animate-effect="fadeIn" swiper-animate-duration="0.4s" swiper-animate-delay="0.5s">
+            <img class="sdxs ani" src="images/sdxs.png" swiper-animate-effect="bounceIn" swiper-animate-duration="0.4s" swiper-animate-delay="0.8s">
+            <img class="font ani" src="images/page3_font.png" swiper-animate-effect="fadeInLeft" swiper-animate-duration="0.4s" swiper-animate-delay="1s">
+            <div class="gbn_all ani" swiper-animate-effect="fadeInRight" swiper-animate-duration="0.4s" swiper-animate-delay="1.3s">
+                <div class="gbn_wrap">
+                    <img class="gbn" src="images/gbn.png" alt="">
+                    <div class="sun ani" swiper-animate-effect="sun_move" swiper-animate-duration="1s" swiper-animate-delay="2.5s"></div>
+                </div>
+                <img class="xian" src="images/xian.png" alt="">
+                <!-- <img class="earth ani" src="images/earth.png" > -->
+                <canvas class="earth"></canvas>
+            </div>
+             <img class="down ani" src="images/down.png" swiper-animate-effect="down_move" swiper-animate-duration="1s" swiper-animate-delay="2.5s">
+             <div class="music" v-tap="{fn:music,value:''}"><img class="music_move" v-if="music_bol" src="images/music1.png"><img v-else src="images/music2.png"></div>
+        </div>
+
+         <!-- 第四页 -->
+        <div class="swiper-slide one page4 swiper-no-swiping">
+            <img class="logo ani" src="images/logo.png" swiper-animate-effect="fadeInLeft" swiper-animate-duration="0.4s" swiper-animate-delay="0.3s">
+            <img class="bg ani" src="images/page4_bg.png" swiper-animate-effect="fadeIn" swiper-animate-duration="0.4s" swiper-animate-delay="0.5s">
+            <img class="sdxs ani" src="images/sdxs.png" swiper-animate-effect="bounceIn" swiper-animate-duration="0.4s" swiper-animate-delay="0.8s">
+            <img class="font ani" src="images/page4_font.png" swiper-animate-effect="fadeInLeft" swiper-animate-duration="0.4s" swiper-animate-delay="1s">
+            <img class="aristotle ani" src="images/aristotle.png" swiper-animate-effect="fadeInRight" swiper-animate-duration="0.5s" swiper-animate-delay="1.3s">
+            <div class="flash"><img src="images/page4_1.png" alt=""></div>            
+            <canvas class="swiper-no-swipin"></canvas>
+            <img class="down ani" src="images/down.png" swiper-animate-effect="down_move" swiper-animate-duration="1s" swiper-animate-delay="2.5s"> 
+            <div class="music" v-tap="{fn:music,value:''}"><img class="music_move" v-if="music_bol" src="images/music1.png"><img v-else src="images/music2.png"></div>
+        </div>
+
+        <!-- 第五页 -->
+        <div class="swiper-slide two page5">
+            <div class="wrap">
+                <div class="content">
+                    <img class="logo ani" src="images/logo.png" swiper-animate-effect="fadeInLeft" swiper-animate-duration="0.5s" swiper-animate-delay="0.3s">
+                    <img class="deng" src="images/deng.png" alt="">
+                    <img class="fine ani" src="images/fine.png" swiper-animate-effect="fadeIn" swiper-animate-duration="1s" swiper-animate-delay="1s">
+                    <img class="fasheng1 ani" src="images/fasheng1.png" swiper-animate-effect="scalemove" swiper-animate-duration="0.5s" swiper-animate-delay="1.8s">
+                    <img class="fasheng2 ani" src="images/fasheng2.png" swiper-animate-effect="scalemove" swiper-animate-duration="0.5s" swiper-animate-delay="2.5s">
+                </div>
+            </div>
+            <!-- <img class="down ani" src="images/down.png" swiper-animate-effect="fadeIn" swiper-animate-duration="0.5s" swiper-animate-delay="3.5s"> -->
+            <img class="down ani" src="images/down.png" swiper-animate-effect="down_move" swiper-animate-duration="1s" swiper-animate-delay="3.5s"> 
+            <div class="music" v-tap="{fn:music,value:''}"><img class="music_move" v-if="music_bol" src="images/music1.png"><img v-else src="images/music2.png"></div>
+        </div>
+        <!-- 第5-1页 -->
+        <div class="swiper-slide two page5-1">
+            <div class="wrap">
+                <div class="content">
+                    <img class="logo ani" src="images/logo.png" swiper-animate-effect="fadeInLeft" swiper-animate-duration="0.5s" swiper-animate-delay="0.3s">
+                    <img class="deng" src="images/deng.png" alt="">
+                    <img class="img1 ani" src="images/page6_font1.png" swiper-animate-effect="fadeIn" swiper-animate-duration="0.5s" swiper-animate-delay=".3s">
+                    <img class="img2 ani" src="images/page6_font2.png" swiper-animate-effect="fadeIn" swiper-animate-duration="0.5s" swiper-animate-delay=".6s">
+                    <img class="img3 ani" src="images/page6_font3.png" swiper-animate-effect="fadeIn" swiper-animate-duration="0.5s" swiper-animate-delay=".9s">
+                    <img class="img4 ani" src="images/page6_font4.png" swiper-animate-effect="fadeIn" swiper-animate-duration="0.5s" swiper-animate-delay="1.2s">
+                    <img class="img5 ani" src="images/page6_font5.png" swiper-animate-effect="fadeIn" swiper-animate-duration="0.5s" swiper-animate-delay="1.5s">
+                    <img class="img6 ani" src="images/page6_font6.png" swiper-animate-effect="fadeIn" swiper-animate-duration="0.5s" swiper-animate-delay="1.8s">
+                    <img class="img7 ani" src="images/page6_font7.png" swiper-animate-effect="fadeIn" swiper-animate-duration="0.5s" swiper-animate-delay="2.1s">
+                    <img class="img8 ani" src="images/page6_font8.png" swiper-animate-effect="fadeIn" swiper-animate-duration="0.5s" swiper-animate-delay="2.4s">
+                    <div class="font">
+                        <p>……&nbsp;</p>
+                        <p class="ani" swiper-animate-effect="scalemove" swiper-animate-duration="0.8s" swiper-animate-delay="2.5s">成为时代先生</p>
+                        <p class="ani" swiper-animate-effect="scalemove" swiper-animate-duration="0.8s" swiper-animate-delay="3s">&nbsp遇见不一样的自己</p>
+                    </div>
+                    <!-- <img class="down ani" src="images/down.png" swiper-animate-effect="fadeIn" swiper-animate-duration="0.5s" swiper-animate-delay="3.5s">  -->
+                    <img class="down ani" src="images/down.png" swiper-animate-effect="down_move" swiper-animate-duration="1s" swiper-animate-delay="3.5s"> 
+                </div>
+            </div>
+            <div class="music" v-tap="{fn:music,value:''}"><img class="music_move" v-if="music_bol" src="images/music1.png"><img v-else src="images/music2.png"></div>
+        </div>
+        
+        <!-- 第6页 -->
+        <div class="swiper-slide two page6">
+            <div class="wrap">
+                <div class="content">
+                    <img class="logo ani" src="images/logo.png" swiper-animate-effect="fadeInLeft" swiper-animate-duration="0.5s" swiper-animate-delay="0.3s">
+                    <img class="deng" src="images/deng.png" alt=""> 
+                    <img :class="page6_btn1_bol?'btn1 ani opacity':'btn1 ani'" v-tap="{fn:page9_show,value:''}" src="images/page7_btn1.png" swiper-animate-effect="scalemove" swiper-animate-duration="0.5s" swiper-animate-delay="0.8s" >                    
+                    <img :class="page6_btn2_bol?'btn2 ani opacity':'btn2 ani'" v-tap="{fn:page11_show,value:''}" src="images/page7_btn2.png" swiper-animate-effect="scalemove" swiper-animate-duration="0.5s" swiper-animate-delay="1.6s">
+                    
+                    <img class="font_img1 ani" src="images/page7_font1.png" swiper-animate-effect="fadeIn" swiper-animate-duration="0.5s" swiper-animate-delay="2.2s"> 
+                    <img class="font_img2 ani" src="images/page7_font2.png" swiper-animate-effect="fadeIn" swiper-animate-duration="0.5s" swiper-animate-delay="2.2s">
+
+                    <img class="hand1 ani" src="images/hand.png" swiper-animate-effect="fadeInOut" swiper-animate-duration="1s" swiper-animate-delay="2.8s">
+                    <img class="hand2 ani" src="images/hand.png" swiper-animate-effect="fadeInOut" swiper-animate-duration="1s" swiper-animate-delay="2.8s">
+                    <img class="stat1 ani" src="images/page7_stat.png" swiper-animate-effect="fadeIn" swiper-animate-duration="0.5s" swiper-animate-delay="2.8s">
+                    <img class="stat2 ani" src="images/page7_stat.png" swiper-animate-effect="fadeIn" swiper-animate-duration="0.5s" swiper-animate-delay="2.8s">
+
+                    <ul class="font2 ani" swiper-animate-effect="fadeIn" swiper-animate-duration="0.8s" swiper-animate-delay="3.5s">
+                        <li>凡转发分享此链接至朋友圈</li>
+                        <li>并截图发送至</li>
+                        <li><span>#时代学堂#</span>微信公众号</li>
+                        <li>即有机会获取惊喜大礼包</li>
+                    </ul>
+                    <!-- <img class="down ani" src="images/down.png" swiper-animate-effect="fadeIn" swiper-animate-duration="0.8s" swiper-animate-delay="4s"> -->
+                    <img class="down ani" src="images/down.png" swiper-animate-effect="down_move" swiper-animate-duration="1s" swiper-animate-delay="3.5s"> 
+                    <img class="font3 ani" src="images/page7_fon3.png" swiper-animate-effect="fadeIn" swiper-animate-duration="0.8s" swiper-animate-delay="4s">
+                </div>
+            </div>    
+            <div class="music" v-tap="{fn:music,value:''}"><img class="music_move" v-if="music_bol" src="images/music1.png"><img v-else src="images/music2.png"></div>
+        </div>
+        
+        <!-- 第7页 -->
+        <div class="swiper-slide three page7">
+            <div class="wrap">
+                <div class="content">
+                    <img class="logo ani" src="images/logo.png" swiper-animate-effect="fadeInLeft" swiper-animate-duration="0.5s" swiper-animate-delay="0.3s">
+                    <!-- <img class="share" src="images/share.png" alt=""> -->
+                    <!-- 没有信息时显示 -->
+                    <div class="not_have" v-if="!names_bol">
+                        <img class="font" src="images/page8_font.png" alt="">
+                        <button class="btn" v-tap="{fn:page11_show,value:''}">提名他人成为时代讲师</button>
+                    </div>
+                    <!-- 有信息时显示 -->
+                    <div class="have" v-else>
+                        <img class="vote_title" src="images/vote_title.png" alt="">
+                        <div class="names swiper-no-swiping">
+                            <div class="scroller">
+                                <ul>
+                                    <li v-for="item in names" v-tap="{fn:page8_show,value:item}">
+                                        <div class="name">
+                                            <h4>{{item.name}}</h4>
+                                            <p>{{item.division}}</p>
+                                        </div>
+                                        <div class="ticket">{{item.ticket}}票</div>
+                                        <div class="tag">{{item.tag[0]}}</div>
+                                    </li>                                   
+                                </ul>
+                            </div>
+                            <div class="scroll_up" v-if="names.length>4"><span></span></div>
+                            <div class="scroll_down" v-if="names.length>4"><span></span></div>
+                        </div>
+                        <div class="back" v-tap="{fn:page7_back,value:''}">
+                            <p>返回上一页</p>
+                            <p>报名成为时代讲师</p>
+                            <p>提名他人成为时代讲师</p>
+                        </div>
+                        <!-- <div class="hd" ><img src="images/hd.png" alt=""></div> -->
+                    </div>
+                </div>
+            </div>  
+            <div class="music" v-tap="{fn:music,value:''}"><img class="music_move" v-if="music_bol" src="images/music1.png"><img v-else src="images/music2.png"></div>  
+        </div>
+
+    </div>
+    
+    <!-- 第8页 -->
+    <div class="page8 three other swiper-no-swiping" v-if="page8_show_bol">
+        <div class="wrap">
+            <div class="content">
+                <img class="logo animated fadeInLeft" src="images/logo.png">
+                <img class="share" src="images/share.png" alt="">
+                <div class="con">
+                    <h4>{{page8_data.name}}</h4>
+                    <p class="division">{{page8_data.division}}</p>
+                    <div class="vote">
+                        <span>{{page8_data.ticket}}票</span>
+                        <button class="vote_btn" v-tap="{fn:vote_btn,value:''}">点击投票</button>
+                    </div>
+                    <div class="tag">
+                        <div class="scroller">
+                            <ul>
+                                <li v-for="item in page8_data.tag">{{item}}</li>
+                            </ul>
+                        </div>
+                        <div class="scroll_up" ><span></span></div>
+                        <div class="scroll_down" ><span></span></div>
+                    </div>
+                    <!-- <div class="hd" ><img src="images/hd.png" alt=""></div> -->
+                    <button class="tag_btn" v-tap="{fn:page12_show,value:''}">给Ta加一枚标签</button>
+                    <div class="back" v-tap="{fn:page8_hide,value:''}">
+                        <p>返回上一页</p>
+                        <p>给其他人投票</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="music" v-tap="{fn:music,value:''}"><img class="music_move" v-if="music_bol" src="images/music1.png"><img v-else src="images/music2.png"></div>
+    </div>
+    <!-- 第9页 -->
+    <div class="page9 three other swiper-no-swiping" v-if="page9_show_bol">
+        <div class="wrap">
+            <div class="content">
+                <img class="logo animated fadeInLeft" src="images/logo.png">
+                <img class="share" src="images/share.png" alt="">
+                <div class="con">
+                    <div class="title">
+                        <p>填写报名信息</p>
+                        <p>报名成为时代讲师</p>
+                    </div>
+                    <div class="from">
+                        <div><img src="images/name.png" alt=""><input v-model="page9_name" type="text"> </div>
+                        <div>
+                            <img src="images/division.png" alt="">
+                            <input v-model="page9_division" v-tap="{fn:scroller_wrap9_show,value:''}"  readonly class="select" type="text" placeholder="请选择所在赛区"><span class="san"></span>
+                            <div class="scroller_wrap" v-if="scroller_wrap9">
+                                <div class="scroller">
+                                    <ul>
+                                        <li v-tap="{fn:select9,value:item}" v-for="item in divisions">{{item}}</li>
+                                    </ul>
+                                </div>
+                            </div>                           
+                        </div>
+                        <div><img src="images/lx.png" alt=""><input v-model="page9_contact" type="tel" maxlength=11></div>
+                    </div>                    
+                    <button class="submit" v-tap="{fn:page9_submit,value:''}">提交信息</button>
+                    <div class="back" v-tap="{fn:page9_back,value:''}">
+                        <p>返回上一页</p>
+                        <p>提名他人成为时代讲师</p>
+                        <p>查看讲师提名墙</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="music" v-tap="{fn:music,value:''}"><img class="music_move" v-if="music_bol" src="images/music1.png"><img v-else src="images/music2.png"></div>
+    </div>
+
+    <!-- 第9-1页 -->
+    <div class="page9-1 three other swiper-no-swiping" v-if="page9_1_show_bol">
+        <div class="wrap">
+            <div class="content">
+                <img class="logo animated fadeInLeft" src="images/logo.png">
+                <img class="share" src="images/share.png" alt="">
+                <div class="con">
+                    <div class="msg">
+                        <p>您已成功报名 </p>
+                        <p>“时代先生”选拔赛，</p>
+                        <p>请留意后续通知</p>
+                    </div>
+
+                    <div class="back" v-tap="{fn:page9_1_back,value:''}">
+                        <p>返回上一页</p>
+                        <p>提名他人成为时代讲师</p>
+                        <p>查看讲师提名墙</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="music" v-tap="{fn:music,value:''}"><img class="music_move" v-if="music_bol" src="images/music1.png"><img v-else src="images/music2.png"></div>
+    </div>
+
+    <!-- 第9-2页 -->
+    <div class="page9-2 three other swiper-no-swiping" v-if="page9_2_show_bol">
+        <div class="wrap">
+            <div class="content">
+                <img class="logo animated fadeInLeft" src="images/logo.png">
+                <img class="share" src="images/share.png" alt="">
+                <div class="con">
+                    <div class="msg">
+                        <p>您已成功提名他人</p>
+                        <p>进入“时代先生”选拔赛</p>
+                    </div>
+
+                    <div class="back" v-tap="{fn:page9_2_back,value:''}">
+                        <p>返回上一页</p>
+                        <p>提名他人成为时代讲师</p>
+                        <p>查看讲师提名墙</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="music" v-tap="{fn:music,value:''}"><img class="music_move" v-if="music_bol" src="images/music1.png"><img v-else src="images/music2.png"></div>
+    </div>
+
+
+    <!-- 第11页 -->
+    <div class="page11 three other swiper-no-swiping" v-if="page11_show_bol">
+        <div class="wrap">
+            <div class="content">
+                <img class="logo animated fadeInLeft" src="images/logo.png">
+                <img class="share" src="images/share.png" alt="">
+                <div class="con">
+                    <div class="title">
+                        <p>填写信息提名他人成为时代讲师</p>
+                    </div>
+                    <div class="from">
+                        <div><img src="images/name.png" alt=""><input type="text" v-model="page11_name"> </div>
+                        <div>
+                            <img src="images/division.png" alt="">
+                            <input v-model="page11_division" v-tap="{fn:scroller_wrap11_show,value:''}" readonly class="select" type="text" placeholder="请选择所在赛区"><span class="san"></span>
+                            <div class="scroller_wrap" v-if="scroller_wrap11">
+                                <div class="scroller">
+                                    <ul>
+                                        <li v-tap="{fn:select11,value:item}" v-for="item in divisions">{{item}}</li>
+                                    </ul>
+                                </div>
+                            </div>                           
+                        </div>
+                        <div><img src="images/label.png" alt=""><input type="text" v-model="page11_tag"></div>
+                    </div>                    
+                    <button class="submit" v-tap="{fn:page11_submit,value:''}">提交信息</button>
+                    <div class="back" v-tap="{fn:page11_back,value:''}">
+                        <p>返回上一页</p>
+                        <p>报名成为时代讲师</p>
+                        <p>查看讲师提名墙</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="music" v-tap="{fn:music,value:''}"><img class="music_move" v-if="music_bol" src="images/music1.png"><img v-else src="images/music2.png"></div>
+    </div>
+    
+    <!-- 第12页 -->
+<!--     <div class="page12 three other swiper-no-swiping" v-if="page12_show_bol">
+    <div class="wrap">
+        <div class="content">
+            <img class="logo animated fadeInLeft" src="images/logo.png">
+            <img class="share" src="images/share.png" alt="">
+            <div class="con">
+                <div class="title">
+                    <p>填写信息提名他人成为时代讲师</p>
+                </div>
+                <div class="from">
+                    <div><img src="images/name.png" alt=""><input disabled type="text" :value="page8_data.name"> </div>
+                    <div>
+                        <img src="images/division.png" alt="">
+                        <input disabled readonly class="select" type="text" placeholder="请选择所在赛区" :value="page8_data.division"><span class="san"></span>                                                    
+                    </div>
+                    <div><img src="images/label.png" alt=""><input type="text"></div>
+                </div>                    
+                <button class="submit" v-tap="{fn:page9_2_show,value:''}">提交信息</button>
+                <div class="back" v-tap="{fn:page12_back,value:''}">
+                    <p>返回上一页</p>
+                    <p>给其他人投票</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> -->
+    <div class="page12 three other swiper-no-swiping" v-if="page12_show_bol">
+        <div class="wrap">
+            <div class="content">
+                <img class="logo animated fadeInLeft" src="images/logo.png">
+                <img class="share" src="images/share.png" alt="">
+                <div class="con">
+                    <div class="title">
+                        <p>填写信息提名他人成为时代讲师</p >
+                    </div>
+                    <div class="from">
+                        <div><img src="images/name.png" alt=""><input disabled type="text" :value="page8_data.name"> </div>
+                        <div>
+                            <img src="images/division.png" alt="">
+                            <input disabled readonly class="select" type="text" placeholder="请选择所在赛区" :value="page8_data.division"><span class="san"></span>                                                    
+                        </div>
+                        <div><img src="images/label.png" alt=""><input type="text" v-model="page12_tag"></div>
+                    </div>                    
+                    <button class="submit" v-tap="{fn:page12_submit,value:''}">提交信息</button>
+                    <div class="back" v-tap="{fn:page12_back,value:''}">
+                        <p>返回上一页</p >
+                        <p>给其他人投票</p >
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="music" v-tap="{fn:music,value:''}"><img class="music_move" v-if="music_bol" src="images/music1.png"><img v-else src="images/music2.png"></div>
+    </div>
+    
+
+    <!-- 白色背景 -->
+    <div class="white_bg swiper-no-swipin"></div>
+</div>
+</div>
+
+
+</body>
+<script type="text/javascript">
+    // alert(2);
+</script>
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?099f4d02173877175f4c2be1fa54eb25";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s); 
+  // parentNode 返回指定节点的父节点  
+  // insertBefore() 方法可在已有的子节点前插入一个新的子节点(1节点对象,2新的子节点)
+})();
+</script>
+</html>

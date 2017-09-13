@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<title>果然会转-美年达游戏</title>
+	<link rel="stylesheet" href="css/mirinda.css">
+</head>
+<script type="text/javascript" src="js/jquery-3.1.0.min.js"></script>
+<script type="text/javascript">
+
+    //获取url参数
+    function getParam(par) {
+      var url = location.search; //获取url中"?"符后的字串
+      var newStr1 = url.split("?");
+      var newStr= newStr1[newStr1.length - 1];
+
+      console.log(newStr);
+
+      var theRequest = new Object();
+      strs = newStr.split("&");
+      for(var i = 0; i < strs.length; i ++) {
+        theRequest[strs[i].split("=")[0]]=unescape(strs[i].split("=")[1]);
+      }
+
+      return theRequest[par];
+    }
+
+
+    var openid1 = getParam('openid');
+    var nickname1 = getParam('nickname');
+    var game_id = 4;
+    if(!openid1){
+      // window.location.href = 'http://test.palm-h.com/main/2017/mirinda/admin/Home/interface/wxAuth';
+    }
+    
+
+   </script>
+<script type="text/javascript" src="js/base64.js"></script>
+<script type="text/javascript" src="js/json2.js"></script>
+
+<script type="text/javascript" src="js/utf.js"></script>
+<script type="text/javascript" src="js/ecode64.js"></script>
+
+<script type="text/javascript" src="js/iscroll.min.js"></script>
+<script type="text/javascript" src="js/spin.min.js"></script>
+<body>
+
+<script type="text/javascript">
+
+var search = location.search.substring(1);
+var getData = search.split("&");
+if (!search) {
+	// location.href = " http://test.palm-h.com/main/2017/mirinda/admin/Home/interface/wxAuth";
+}else{
+	// alert(getData)
+	openid = getData[0].split("=")[1];
+	nickname = getData[1].split("=")[1];
+}
+(function(html){change();function change(){var w=html.clientWidth;if(w>640){w=640}var size=100*(w/375).toFixed(2);html.style.fontSize=size+"px"}window.addEventListener("resize",function(){change()})})(document.documentElement);
+</script>
+<div class="wrap">
+<audio src="sound/bg.mp3" preload loop autoplay id="audio"></audio>
+
+<script type="text/javascript">
+function audioAutoPlay(id){
+    var audio = document.getElementById(id);
+    audio.play();
+    document.addEventListener("WeixinJSBridgeReady", function () {
+            audio.play();
+    }, false);
+    document.addEventListener('YixinJSBridgeReady', function() {
+        audio.play();
+    }, false);
+
+    $(function () {
+    	var music_bol = true;
+    	$(".music").on("click",function () {
+    		music_bol=!music_bol;
+    		if (music_bol) {
+    			audio.play();
+    			$(".music .m1").show()
+    			$(".music .m2").hide()
+    		}else{
+    			audio.pause();	    		
+    			$(".music .m2").show()
+    			$(".music .m1").hide()
+    		}
+    	});
+    })
+}
+audioAutoPlay('audio');
+</script>
+	<!-- start加载页 -->
+	<div class="loading">
+		<img class="logo" src="img/loading/logo.png" alt="">
+		<img class="mirinda" src="img/loading/mirinda.png" alt="">
+		<img class="p1 heartbeat" src="img/loading/p.png" alt="">
+		<img class="l0" src="img/loading/l0.png" alt="">
+		<img class="l1 wobble1" src="img/loading/l1.png" alt="">
+		<img class="l2 wobble2" src="img/loading/l2.png" alt="">
+		<img class="l3 wobble3" src="img/loading/l3.png" alt="">
+		<img class="l4 wobble1" src="img/loading/l4.png" alt="">
+		<img class="l5 wobble3" src="img/loading/l5.png" alt="">
+		<img class="l6" src="img/loading/l6.png" alt="">
+		<img class="l7" src="img/loading/l7.png" alt="">
+		<div class="ldk_wrap">
+			<img class="ldk" src="img/loading/ldk.png" alt="">
+			<div class="jdt">
+				<img src="img/loading/jdt.png" alt="">
+			</div>
+		</div>
+		<p class="percent">0%</p>
+	</div>		
+	<!-- end加载页 -->
+
+	<!-- start主页 -->
+	<div class="home">
+		<div class="music">
+			<img class="m1" src="img/no.png" alt="">
+			<img class="m2" src="img/off.png" alt="">
+		</div>
+		<img class="start" src="img/home/start.png" alt="">
+		<img class="rule" src="img/home/rule.png" alt="">
+		<img class="ranking" src="img/home/ranking.png" alt="">
+		<img class="d1 wobble1" src="img/home/d1.png" alt="">
+		<img class="d2 wobble3" src="img/home/d2.png" alt="">
+		<img class="d3" src="img/home/d3.png" alt="">
+		<!-- start规则说明 -->
+		<div class="rule_wrap">
+			<div class="x">
+				<img src="img/x.png" alt="">
+			</div>			
+			<!-- <img class="down" src="img/home/down.png" alt=""> -->
+			<div class="title_wrap">
+				<img class="rule_title" src="img/home/rule_title.png" alt="">
+			</div>			
+			<div class="con">
+				<div class="iscroll">
+					<h4>1</h4>
+					<p>				
+						水果机游戏界面有三个转轮，点击拉杆后，三个转轮会各自随机转出图标（美年达Logo、橙子美年达、青苹果美年达、西瓜美年达、柚子美年达、橙子pet330美年达、橙子易拉罐美年达、炸弹）中的一个，从而形成不同组合，获得相应的倍数
+					</p>
+					<h4>2</h4>
+					<p>				
+						每种图标组合对应的倍数为：三个美年达Logo 15倍、三个橙子美年达10倍、三个橙子pet装8倍、三个橙子易拉罐装6倍、三个其他口味美年达均3倍，未集齐3个相同图案且无炸弹的组合只得1倍。当炸弹出现在以上任何组合里时，扣10分。
+					</p>
+					<h4>3</h4>
+					<p>				
+						游戏开局会送50滴果汁，每次拉杆前都可自行随意注入10—90滴的果汁数进入水果机里。果汁数会与所转出的倍率相乘，形成获得的分数。
+					</p>
+					<h4>4</h4>
+					<p>				
+						点击“提前结束”按钮或果汁消耗完则游戏结束，结算总分数，获得积分。到底谁是水果王一转便知！
+					</p>
+					<h4>5</h4>
+					<p>				
+						当游戏结束结算时，若是回合数超过7轮，将获得游戏剩余果汁数的10%的积分。回合数7轮以内若结束，即使有果汁，也不会获得任何积分。
+					</p>
+					<h4>6</h4>
+					<p>				
+						所获积分可在积分商城兑换礼品，礼品数量日期有限，先兑先得。
+					</p>
+					<h4>7</h4>
+					<p>				
+						最终形成总分排行榜排行榜单。
+					</p>
+				</div>
+			</div>
+		</div>
+		<!-- end规则说明 -->
+	</div>
+	<!-- end主页 -->
+	
+	<!-- start老虎机 -->
+	<div class="tiger">
+		<div class="music">
+			<img class="m1" src="img/no.png" alt="">
+			<img class="m2" src="img/off.png" alt="">
+		</div>
+		<div class="dao_wrap">
+			<img src="img/tiger/dao1.png" alt="">
+			<img src="img/tiger/dao2.png" alt="">
+			<img src="img/tiger/dao3.png" alt="">
+		</div>
+		<div class="tiger_wrap">
+			<div class="gan"></div>
+			<canvas width="97" height="238"></canvas>
+			<img class="tiger-img" src="img/tiger/tiger.png" alt="">
+			<div id="score"><img src="img/tiger/score_wrap.png" alt=""><span>50</span></div>
+			<div id="score1"><img src="img/tiger/hui.png" alt=""><span class="trun">0</span></div>
+			<!-- <span class="trun">0</span> -->
+			<div class="jetton1">1</div>
+			<div class="jetton2">0</div>
+			<div class="left-btn">
+				<img src="img/tiger/left-btn.png" alt="">
+			</div>
+			<div class="right-btn">
+				<img src="img/tiger/right-btn.png" alt="">
+			</div>
+			<div class="tqEnd_wrap">
+				<img class="tqEnd" src="img/tiger/tqEnd.png" alt="">
+			</div>			
+			<div class="rotate clear">
+				<div class="tun1">
+					<div class="inner" i="0">
+						<div><img src="img/tiger/8.jpg"></div>
+						<div><img src="img/tiger/0.jpg"></div>
+						<div><img src="img/tiger/1.jpg"></div>
+						<div><img src="img/tiger/2.jpg"></div>
+						<div><img src="img/tiger/3.jpg"></div>
+						<div><img src="img/tiger/4.jpg"></div>
+						<div><img src="img/tiger/5.jpg"></div>
+						<div><img src="img/tiger/6.jpg"></div>
+						<div><img src="img/tiger/7.jpg"></div>
+						<div><img src="img/tiger/8.jpg"></div>
+					</div>
+				</div>
+				<div class="tun2">
+					<div class="inner" i="1">
+						<div><img src="img/tiger/8.jpg"></div>
+						<div><img src="img/tiger/0.jpg"></div>
+						<div><img src="img/tiger/1.jpg"></div>
+						<div><img src="img/tiger/2.jpg"></div>
+						<div><img src="img/tiger/3.jpg"></div>
+						<div><img src="img/tiger/4.jpg"></div>
+						<div><img src="img/tiger/5.jpg"></div>
+						<div><img src="img/tiger/6.jpg"></div>
+						<div><img src="img/tiger/7.jpg"></div>
+						<div><img src="img/tiger/8.jpg"></div>
+					</div>
+				</div>
+				<div class="tun3">
+					<div class="inner" i="2">
+						<div><img src="img/tiger/8.jpg"></div>
+						<div><img src="img/tiger/0.jpg"></div>
+						<div><img src="img/tiger/1.jpg"></div>
+						<div><img src="img/tiger/2.jpg"></div>
+						<div><img src="img/tiger/3.jpg"></div>
+						<div><img src="img/tiger/4.jpg"></div>
+						<div><img src="img/tiger/5.jpg"></div>
+						<div><img src="img/tiger/6.jpg"></div>
+						<div><img src="img/tiger/7.jpg"></div>
+						<div><img src="img/tiger/8.jpg"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="mb">
+			<div class="jg">
+				<img src="img/tiger/b1.png" alt="" class="b1">
+				<img src="img/tiger/b3.png" alt="" class="b3">
+				<img src="img/tiger/b6.png" alt="" class="b6">
+				<img src="img/tiger/b8.png" alt="" class="b8">
+				<img src="img/tiger/b10.png" alt="" class="b10">
+				<img src="img/tiger/b15.png" alt="" class="b15">
+			</div>
+		</div>
+	</div>
+	<!-- end老虎机 -->
+
+	<!-- start排行榜 -->
+	<div class="ranking_wrap">		
+	
+		<div class="title_wrap">				
+			<img class="ranking_title" src="img/ranking_title.png" alt="">
+		</div>
+		<ul>
+			<li class="title">
+				<div><span>排行</span></div>
+				<div><span>头像</span></div>
+				<div><span>昵称</span></div>
+				<div><span>成绩</span></div>
+			</li>
+		</ul>
+		<div class="ranking_list">
+			<div class="iscroll">
+				<ul>				
+					<!-- <li class="list one">
+						<div>No.1</div>
+						<div><img class="headImg" src="img/1.png" alt=""><img class="first" src="img/one.png" alt=""></div>
+						<div>小猫</div>
+						<div>200分</div>
+					</li>
+					<li class="list two">
+						<div>No.2</div>
+						<div><img class="headImg" src="img/2.png" alt=""></div>
+						<div>马东</div>
+						<div>200分</div>
+					</li>
+					<li class="list three">
+						<div>No.3</div>
+						<div><img class="headImg" src="img/3.png" alt=""></div>
+						<div>李丹</div>
+						<div>200分</div>
+					</li>
+					<li class="list four">
+						<div>No.4</div>
+						<div><img class="headImg" src="img/4.png" alt=""></div>
+						<div>papi</div>
+						<div>200分</div>
+					</li> -->
+				</ul>
+			</div>
+		</div>			
+		<div class="x">
+			<img src="img/x.png" alt="">
+		</div>		
+	</div>
+	<!-- end排行榜 -->
+
+	<!-- start挑战结束 -->
+	<div class="over">
+		<div class="over_wrap">		
+			<!-- <img class="x" src="img/x.png" alt=""> -->
+			<div class="title_wrap">
+				<img class="over_title" src="img/over/over_title.png" alt="">
+			</div>
+			
+			<div class="score_wrap">
+				<img class="score_bg" src="img/over/score_bg.png" alt="">
+				<div class="score_font">
+					<img src="img/over/score_font1.png" alt="">
+					<img src="img/over/score_font2.png" alt="">
+					<img src="img/over/score_font3.png" alt="">
+				</div>				
+				<div class="score">95分</div>
+				<div class="get">
+					获得积分：<span>2</span><span>0</span><span>0</span>
+				</div>
+			</div>
+			<div class="store">
+				<img src="img/over/store.png" alt="">			
+			</div>
+			<div class="ra">
+				<img class="fl" src="img/over/ranking.png" alt="">
+				<img class="fr" src="img/over/again.png" alt="">
+			</div>
+			<div class="share_font">
+				<span class="font">分享给好友</span><span class="san"></span>
+			</div>			
+		</div>
+		<div class="share_wrap">
+			<img class="share" src="img/share.png" alt="">
+		</div>
+	</div>
+	<!-- end挑战结束 -->
+
+	<div id="spin_wrap"></div>
+</div>
+</body>
+<script type="text/javascript" src="js/mirinda.js"></script>
+<script src="jssdk/wx.js"></script>
+<script src="jssdk/weixin.js"></script>
+<script src="https://jic.talkingdata.com/app/h5/v1?appid=ED7D925DF85E4CC284F0CA3AAE9407E5"></script>
+</html>

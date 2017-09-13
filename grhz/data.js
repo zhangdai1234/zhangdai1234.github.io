@@ -1,0 +1,12 @@
+[
+	{"name":"小猫","imgUrl":"img/1.png","score":400},
+	{"name":"马东","imgUrl":"img/2.png","score":300},
+	{"name":"李丹","imgUrl":"img/3.png","score":200},
+	{"name":"papi","imgUrl":"img/4.png","score":200},
+	{"name":"papi","imgUrl":"img/4.png","score":200},
+	{"name":"papi","imgUrl":"img/4.png","score":200},
+	{"name":"papi","imgUrl":"img/4.png","score":200},
+	{"name":"papi","imgUrl":"img/4.png","score":200},
+	{"name":"papi","imgUrl":"img/4.png","score":200},
+	{"name":"papi","imgUrl":"img/4.png","score":200}
+]

@@ -1,0 +1,206 @@
+*{margin: 0;padding: 0;-webkit-tap-highlight-color:transparent;}
+img{vertical-align: middle;}
+ul{list-style: none;}
+html,body{height: 100%;font-family: "微软雅黑","Microsoft YaHei"}
+body{font-size: 12px;}
+
+#spin_wrap{position: fixed;top: 0;left: 0;width: 100%;height: 100%;background: rgba(0,0,0,0.3);z-index: 999;display: none;}
+
+
+.wrap{width: 100%;height: 100%;max-width: 640px;margin: auto;position: relative;}
+.fl{float: left;}
+.fr{float: right;}
+.iscroll{}
+.music{position: fixed;top:2%;right: 3%;width: 12%;z-index: 2; /*transform: translateZ(10px);-webkit-transform: translateZ(10px);*/}
+.music img{width: 100%;}
+.music img:nth-child(2){display: none;}
+/*start加载页面*/
+.loading{width: 100%;height: 100%;background: url(../img/loading/ld_bg.jpg) 0 bottom;background-size: 100% auto;z-index: 9999;position: absolute;}
+.loading .logo{width: 58.8%;position: absolute;top: 0;right: 0;z-index: 9;}
+.loading .mirinda{width: 95%;position: absolute;bottom: 34%;left: 2%;z-index: 1;}
+.loading .p1{width: 61.2%;position: absolute;left: 22%;bottom: 34.5%;z-index: 2;}
+
+.loading .l0{position: absolute;width: 14%;bottom: 34%;left: 2%;margin-left: 71%;margin-bottom: 72.5%;z-index: 2;}
+.loading .l1{position: absolute;width: 13%;bottom: 34%;left: 2%;margin-left: 81%;margin-bottom: 77%;}
+.loading .l2{position: absolute;width: 8%;bottom: 34%;left: 2%;margin-left: 6%;margin-bottom: 70%;}
+.loading .l3{position: absolute;width: 15%;bottom: 34%;left: 2%;margin-left: 15%;margin-bottom: 79%;}
+.loading .l4{position: absolute;width: 21%;bottom: 5%;left: 12%;}
+.loading .l6{position: absolute;width: 13%;bottom: 4%;left: 27%;}
+.loading .l5{position: absolute;width: 13%;bottom: 2.5%;right: 5%;}
+.loading .l7{position: absolute;width: 16%;bottom: 2%;right: 11%;}
+
+.loading .ldk_wrap{width: 80%;position: absolute;left: 0;right: 0;margin: auto;bottom:27%;}
+.loading .ldk_wrap .ldk{width: 100%;}
+.loading .ldk_wrap .jdt{position: absolute;left: 3%;top: 16%;width: 94%;height: 58%;overflow: hidden;}
+.loading .ldk_wrap .jdt img{width: 100%;height: 100%;}
+.loading  .percent{position: absolute;width: 100%;text-align: center;color: white;font-size: .2rem;text-shadow: 1px 3px 2px #c06c18;bottom: 22%;letter-spacing: 1px;}
+
+/*end加载页面*/
+
+/*start主页*/
+.home{width: 100%;height: 100%;background: url(../img/home/home_bg.jpg) 0 bottom;background-size: 100% 100%;}
+.start,.rule,.ranking{position: absolute;width: 36.4%;left: 0;right: 0;margin: auto;height: 7%;}
+.start{bottom: 42%;}
+.rule{bottom: 32%;}
+.ranking{bottom: 22%;}
+.home .d1{width: 20.4%;height: 10.6%;position: absolute;left: 75.5%;top: 3%;}
+.home .d2{width: 24.4%;height: 14%;position: absolute;left: 26%;top: 2%;}
+.home .d3{width: 15%;height: 5%;position: absolute;left: 18%;top: 14%;}
+
+.home .rule_wrap{width: 100%;height: 100%;position: absolute;left: 0;top: 0;background: rgba(0,0,0,0.9);display: none;z-index: 9;}
+.home .rule_wrap .title_wrap{text-align: center;margin-bottom: .3rem;}
+.home .rule_wrap .rule_title{width: 85%;}
+.home .rule_wrap .x{width: 10%;position: absolute;right: .2rem;top: .2rem;padding:.1rem;}
+.home .rule_wrap .x img{width: 70%;}
+
+.home .rule_wrap .down{width: 5%;position: absolute;left: 0;right: 0;bottom: 6%;margin: auto;}
+.home .rule_wrap .con{width: 77%;height: 60%;color: white;margin:auto;line-height: .25rem;overflow: hidden;}
+.home .rule_wrap .con .iscroll{padding-bottom: 1rem;}
+.home .rule_wrap .con p{margin-bottom: .3rem;}
+.home .rule_wrap .con h4{color: #ffdc2e}
+
+/*end主页*/
+
+
+/*start挑战结束*/
+.over{width: 100%;height: 100%;position: absolute;left: 0;top: 0;background: rgba(0,0,0,0.9);overflow: hidden;display: none;z-index: 9;}
+.over_wrap{position: absolute;width: 100%;margin: auto;}
+
+.over .x{width: 10%;position: absolute;right: .2rem;top: .2rem;padding:.1rem;}
+.over .x img{width: 70%;}
+
+.over .title_wrap{text-align: center;padding-top: .15rem;position: relative;z-index: 2}
+.over .over_title{width: 79%;}
+.over .score_wrap{width: 59%;margin: -.5rem auto 0;position: relative;}
+.over .score_wrap .score_bg{width: 100%;}
+.over .score_wrap .score_font{position: absolute;left: -10%;top: -8%;width: 83%;z-index: 2;}
+.over .score_wrap .score_font img{width: 100%;display: none;}
+.over .score{width: 62%;font-size: .38rem;color: #f0570d;text-shadow:white 2px 0 0,white 0 2px 0,white -2px 0 0,white 0 -2px 0,#c98114 4px 4px 5px;position: absolute;left: 21.5%;top: 29%;font-weight: bold;letter-spacing: .01rem;text-align: center;}
+.over .get{color: #f0570d;font-size: .16rem;position: absolute;bottom: 0;left: 0;padding-bottom: .2rem;font-weight: bold;text-align: center;width: 100%;}
+.over .get span{display: inline-block;width: .2rem;height: .28rem;background: white;border-radius: .03rem;margin-right: .03rem;line-height: .28rem;font-size: .18rem}
+
+.over .store{text-align: center;padding-top: .15rem;}
+.over .store img{width: 54.4%;}
+.over .ra{overflow: hidden;width: 54.4%;margin: .05rem auto 0;}
+.over .ra img{width: 48%;}
+.over .share_font{text-align: center;line-height: .25rem;padding-top: .05rem;padding-bottom: .1rem;}
+.over .share_font .san{width: 0;height: 0;font-size: 0;border-style:solid;border-color:transparent  transparent transparent #fbca0d;border-width: .05rem 0px .05rem .07rem;vertical-align: middle;display: inline-block;margin-left: .02rem;}
+.over .share_font .font{text-decoration: underline;color: #fbca0d;font-size: .16rem;}
+.share_wrap{width: 100%;height: 100%;position: fixed;left: 0;top: 0;background: rgba(0,0,0,0.9);z-index: 99;text-align: right;display: none;}
+.share_wrap .share{width: 43%;margin:.15rem .3rem 0 0;}
+/*end挑战结束*/
+
+/*start排行榜*/
+.ranking_wrap{width: 100%;height: 100%;position: absolute;left: 0;top: 0;background: rgba(0,0,0,0.9);overflow: hidden;display: none;z-index: 99;}
+.ranking_wrap .x{width: 10%;position: absolute;right: .2rem;top: .2rem;padding:.1rem;}
+.ranking_wrap .x img{width: 70%;}
+.ranking_wrap .ranking_list{overflow: hidden;}
+.ranking_wrap .ranking_list ul{padding-bottom: .3rem;}
+
+.ranking_wrap .title_wrap{padding-top: .05rem;text-align: center;}
+.ranking_wrap .ranking_title{width: 83%;}
+
+.ranking_wrap ul{width: 87%;margin: auto;}
+.ranking_wrap ul li{position: relative;overflow: hidden;}
+.ranking_wrap ul .list{height: .83rem;line-height: .83rem;}
+.ranking_wrap ul .list:after{height: 1px;content: '';width: 100%;border-bottom: 1px solid #fff4d0;position: absolute;bottom: -1px;right: 0;transform: scaleY(0.5);-webkit-transform: scaleY(0.5);z-index: 10;background:#fff4d0; }
+
+.ranking_wrap ul .title{margin-bottom: .05rem;}
+.ranking_wrap ul .title span{color: #eea812;background: #fff4d0;border: .04rem solid #eea812;width: .56rem;height: .3rem;margin: auto;border-radius: .15rem;font-size: .2rem;line-height: .3rem;text-align: center;display: inline-block;}
+.ranking_wrap  ul div{float: left;width: 25%;text-align: center;position: relative;}
+.ranking_wrap .ranking_list ul .list div:nth-child(1){color: #fff4d0;font-size: .16rem;}
+.ranking_wrap .ranking_list ul .list div:nth-child(2) .headImg{width: .58rem;}
+.ranking_wrap .ranking_list ul .list div:nth-child(3){color: #fff4d0;font-size: .16rem;}
+.ranking_wrap .ranking_list ul .list div:nth-child(4){color: #fff4d0;font-size: .16rem;}
+
+.ranking_wrap .ranking_list ul .one .first{position: absolute;width: .93rem;top: -.08rem;left: -.06rem;}
+
+.ranking_wrap .ranking_list ul .one div:nth-child(1){color: #ffda2a;text-shadow:#ee6012 1px 0 0,#ee6012 0 1px 0,#ee6012 -1px 0 0,#ee6012 0 -1px 0;font-size: .23rem;font-weight: bold;-webkit-text-stroke: 1.0px #ee6012;}
+
+.ranking_wrap .ranking_list ul .one div:nth-child(4){color: #ee6012;font-size: .2rem;font-weight: bold;}
+
+.ranking_wrap .ranking_list ul .two div:nth-child(1){color: #eea812;font-weight: bold;font-size: .2rem;}
+.ranking_wrap .ranking_list ul .three div:nth-child(1){color: #eea812;font-weight: bold;font-size: .2rem;}
+.ranking_wrap .ranking_list ul .two div:nth-child(2) .headImg,.ranking_wrap ul .three div:nth-child(2) .headImg,.ranking_wrap ul .one div:nth-child(2) .headImg{border: .05rem solid #eea812;border-radius: 50%;}
+/*end排行榜*/
+
+
+/*start老虎机*/
+.tiger{width: 100%;height: 100%;background: url(../img/tiger/gamebg.jpg) 0 bottom;background-size: 100% 100%;position: absolute;left: 0;top:0;display: none;perspective: 1000px;z-index: 5}
+.tiger_wrap{text-align: center;margin-top: .2rem;transform-origin: 50% 0;transform-style: preserve-3d;}
+.tiger_wrap img{width: 98%;position: relative;}
+.tiger_wrap .tqEnd_wrap{text-align: center;}
+.tiger_wrap .tqEnd_wrap img{width: 43%;}
+.tiger #score{height: 30px;position: absolute;top:2.05rem;left:0.85rem;z-index: 10;}
+.tiger #score span{font-size: .23rem;position: absolute;right: 0;top: 0;color:#f7ba14;z-index: 9;padding-right: .05rem;width: 42%;}
+.tiger #score img{height: 100%!important; width: auto!important;}
+.tiger #score1 img{height: 100%!important; width: auto!important;}
+
+.tiger #score1{height: 30px;position: absolute;top:2.05rem;left:2rem;z-index: 10;}
+.tiger .jetton1 ,.tiger .jetton2{width: .18rem;position: absolute;top:67.5%;left: 55%;z-index: 10;color: #f5631c;font-size: .2rem;font-weight: bold;background: #ffffbe;border-radius: .03rem;padding: 0 .01rem;transform:rotateX(2deg) rotateZ(2deg) translateZ(3px);-webkit-transform:rotateX(2deg) rotateZ(2deg) translateZ(3px);}
+.tiger .jetton2{left: 61%;}
+.tiger .left-btn ,.tiger .right-btn{width: .26rem;padding:.1rem;position: absolute;top:65.5%;left:12%;z-index: 10;}
+.tiger .left-btn{padding-left: .5rem;}
+.tiger .right-btn{padding-right: .5rem;left:65%;}
+
+.tiger .left-btn:active img,.tiger .right-btn:active img{opacity: 0}
+
+.rotate{position: absolute;top:2.78rem;left: .9rem;z-index: 10}
+.rotate>div{width: 0.532rem;height: 0.76rem;float:left;overflow:hidden;position: relative;}
+.tun2,.tun3{margin-left:.196rem;}
+.inner{position: absolute;top:-900%;}
+.inner div{width: 0.532rem;height: 0.76rem;}
+.inner img{width: 100%;height: 100%;}
+.tiger canvas{position: absolute;width: 13%;right: -0.5%;top: 44%;z-index: -1;}
+.tiger .gan{position: absolute;width: 16%;height:1.19rem;right: -0.5%;top: 44%;z-index: 9;}
+
+.mb{width: 100%;height: 100%;display:none;position: absolute;top:0;left:0;z-index: 20;background:rgba(0,0,0,.5);transform: translateZ(10px);-webkit-transform: translateZ(10px);}
+/*.mb .jg{padding-top: 10%;}*/
+.mb .jg,.mb .jg img{width: 100%;text-align: center;}
+.mb .jg img{display: none;}
+.mb .jg .b1{width: 65%}
+
+
+.dao_wrap{position: fixed;width: 100%;height: 100%;z-index: 11;background: rgba(0,0,0,0.9);display: none;transform:translateZ(10px);-webkit-transform:translateZ(10px);}
+.dao_wrap img{width: 56%;position: absolute;left: 0;right: 0;bottom: 0;top: 0;margin: auto;display: none;}
+/*end老虎机*/
+
+.trun{
+    /* width: 53px; */
+    height: 22px;
+    /* background: black; */
+    position: absolute;
+    top: 4px;
+    /* left: 0; */
+    right: 11px;
+    /* display: block; */
+    z-index: 99999;
+    font-size: 28px;
+    color: #f7ba14;
+    line-height: 22px;
+
+}
+.animated {animation-duration: 1s;animation-fill-mode: both;}
+.animated.infinite {animation-iteration-count: infinite;}
+.wobble1 {animation-delay:0;animation-duration: 1s;animation-fill-mode: both;animation-name: wobble;animation-iteration-count: infinite;animation-timing-function: : linear;}
+.wobble2 {animation-delay:.3s;animation-duration: 1s;animation-fill-mode: both;animation-name: wobble;animation-iteration-count: infinite;animation-timing-function: : linear;}
+.wobble3 {animation-delay:.6s;animation-duration: 1s;animation-fill-mode: both;animation-name: wobble;animation-iteration-count: infinite;animation-timing-function: : linear;}
+
+@keyframes wobble {
+  from {transform: none;}
+  15% {transform: translate3d(-6%, 0, 0) rotate3d(0, 0, 1, -1deg);}
+  30% {transform: translate3d(4%, 0, 0) rotate3d(0, 0, 1, 1deg);}
+  45% {transform: translate3d(-2%, 0, 0) rotate3d(0, 0, 1, -1deg);}
+  60% {transform: translate3d(2%, 0, 0) rotate3d(0, 0, 1, 1deg);}
+  75% {transform: translate3d(-2%, 0, 0) rotate3d(0, 0, 1, -1deg);}
+  to {transform: none;}
+}
+.heartbeat{animation-duration: 1s;animation-fill-mode: both;animation-name: heartbeat;animation-iteration-count: infinite;}
+@keyframes heartbeat{
+	0%{-webkit-transform: scale(1);transform: scale(1);opacity: 1;}
+	10%{-webkit-transform: scale(1.1);transform: scale(1.1);opacity: 1;}
+	20%{-webkit-transform: scale(1);transform: scale(1);opacity: 1;}
+	30%{-webkit-transform: scale(1.1);transform: scale(1.1);opacity: 1;}
+	40%{-webkit-transform: scale(1);transform: scale(1);opacity: 1;}
+	100%{-webkit-transform: scale(1);transform: scale(1);opacity: 1;}
+}

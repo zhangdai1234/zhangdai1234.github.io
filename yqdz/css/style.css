@@ -1,0 +1,39 @@
+body{font-size: 12px;font-family: 'Microsoft YaHei';}
+ul{list-style: none;}
+img{vertical-align: middle;}
+.wrap .header img{width: 100%;}
+.wrap .content{text-align: center;}
+.wrap .content img{width: 100%;}
+
+.wrap .form{position: relative;}
+.wrap .form .form_bg{width: 100%;}
+.wrap form{position: absolute;width: 100%;top: 0;left: 0;padding-top: .35rem;}
+.wrap form .row{margin-bottom: .05rem;position: relative;}
+.wrap form label{width: 1.15rem;display: inline-block;text-align: right;line-height: .24rem;font-size: .16rem;vertical-align: middle;color: white;padding-right: .1rem;}
+.wrap form input{box-sizing: border-box;width: 1.8rem;height: .24rem;border: none;background: white;border-radius: .03rem;vertical-align: middle;font-size: .15rem;padding: 0 .1rem;box-shadow: 0px -1px 1px 0px #d7bea2 inset;}
+.wrap form .submit{width: 1.35rem;margin: .1rem 0 0 1.4rem;height: .4rem;}
+.wrap form .btn{position: fixed;top: -100px;right: .09rem;width: .39rem;}
+.wrap .img{margin-top: .05rem;}
+
+.wrap .img img{width: 100%;}
+
+.wrap .shop {margin-top: .05rem;}
+.wrap .shop .shop_title img{width: 3.25rem;}
+.wrap .shop .select_wrap{margin-top:.05rem; position: relative;}
+.wrap .shop .select_wrap img{width: 100%;}
+.wrap .shop .top{position: absolute;top: 0;overflow: hidden;left: .14rem;}
+.wrap .shop .top li{width: .63rem;float: left;margin-right: .07rem;height: .3rem;}
+.wrap .shop .top span,.wrap .shop .bottom span{position: absolute;top: 0;width: .63rem;text-align: center;color: white;line-height: .3rem;}
+.wrap .shop .top li img,.wrap .shop .bottom li img{display: none;}
+.wrap .shop .top .select img,.wrap .shop .bottom .select img{display: block;}
+.wrap .shop .bottom{position: absolute;bottom: 0;right: 0;overflow: hidden;right: .14rem;}
+.wrap .shop .bottom li{width: .63rem;float: left;margin-left: .07rem;height: .3rem;}
+
+.wrap .shop .shop_con{margin-top: .05rem;padding-bottom: .4rem;}
+.wrap .shop .shop_con ul{overflow: hidden;}
+.wrap .shop .shop_con li{padding-left: .2rem;width: 1.67rem;float: left;margin-bottom: .05rem;}
+.wrap .shop .shop_con li h4{width: 1.05rem;height: .24rem;background: #f99c33;color: white;text-align: center;line-height: .24rem;font-size: .12rem;}
+
+
+
+.wrap .v:after{content: '';position: absolute;right: 0.8rem;top: .04rem;width: .06rem;height: .06rem;border: .02rem solid #666;transform: rotate(45deg);border-left-color: transparent;border-top-color: transparent;}

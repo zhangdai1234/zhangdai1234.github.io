@@ -1,0 +1,29 @@
+body{font-size: 12px;font-family: 'Microsoft YaHei';}
+img{vertical-align: middle;}
+.wrap .header img{width: 100%;}
+.wrap .title{text-align: center;margin-top: .1rem;}
+.wrap .title img{width: 60%;}
+.wrap .content{text-align: center;margin-top: .04rem;}
+.wrap .content img{width: 95%;}
+.wrap form{margin-top: .1rem;position: relative;}
+.wrap form .row{margin-bottom: .05rem;position: relative;}
+.wrap form label{width: 1.22rem;display: inline-block;text-align: center;line-height: .35rem;font-size: .18rem;vertical-align: middle;}
+.wrap form input{box-sizing: border-box;width: 2.14rem;height: .35rem;border: 1px solid black;background: #dedede;border-radius: .05rem;vertical-align: middle;font-size: .18rem;padding: 0 .1rem;}
+.wrap form .submit{text-align: center;margin-top: .1rem;}
+.wrap form .submit img{width: 2.06rem;}
+.wrap form .btn{position: fixed;top: -100px;right: .09rem;width: .39rem;}
+.wrap .img{margin-top: .05rem;}
+
+.wrap .img img{width: 100%;}
+
+.wrap .shop {margin-top: .05rem;}
+.wrap .shop .shop_title{text-align: center;}
+.wrap .shop .shop_title img{width: 94%;}
+
+.wrap .shop ul{margin-top: .05rem;padding-bottom: .4rem;overflow: hidden;list-style: none;}
+.wrap .shop ul li{padding-left: .2rem;width: 1.67rem;height: .71rem;float: left;margin-bottom: .05rem;}
+.wrap .shop ul li h4{width: 1.05rem;height: .24rem;background: #ca032a;color: white;text-align: center;line-height: .24rem;font-size: .12rem;}
+
+
+
+.wrap .v:after{content: '';position: absolute;right: 0.48rem;top: .1rem;width: .06rem;height: .06rem;border: .02rem solid #666;transform: rotate(45deg);border-left-color: transparent;border-top-color: transparent;}
